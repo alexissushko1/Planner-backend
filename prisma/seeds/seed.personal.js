@@ -40,64 +40,137 @@ const seedPersonal = async (numPasswords = 5) => {
       quantity: 1,
       isPurchased: false,
     },
-    {
-      userId: 2,
-      itemName: "Tofu",
-      quantity: 1,
-      isPurchased: false,
-    },
-    {
-      userId: 2,
-      itemName: "Bananas",
-      quantity: 2,
-      isPurchased: true,
-    },
-    {
-      userId: 3,
-      itemName: "Broccoli",
-      quantity: 2,
-      isPurchased: false,
-    },
-    {
-      userId: 3,
-      itemName: "Muffins",
-      quantity: 1,
-      isPurchased: true,
-    },
-    {
-      userId: 3,
-      itemName: "Kcups",
-      quantity: 1,
-      isPurchased: true,
-    },
-    {
-      userId: 4,
-      itemName: "Pears",
-      quantity: 2,
-      isPurchased: true,
-    },
-    {
-      userId: 4,
-      itemName: "Clementines",
-      quantity: 1,
-      isPurchased: false,
-    },
-    {
-      userId: 5,
-      itemName: "English Muffins",
-      quantity: 1,
-      isPurchased: true,
-    },
-    {
-      userId: 5,
-      itemName: "Grapes",
-      quantity: 1,
-      isPurchased: false,
-    },
   ];
 
   //Insert grocery lists into datanbase
   await prisma.groceryList.createMany({ data: groceryListData });
+
+  //Created data for meals of the week
+
+  const mealsForWeekData = [
+    {
+      userId: 1,
+      dayOfWeek: "Monday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Peanut Butter and Jelly Sandwich, Dinner: Daydream Sandwich",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Tuesday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Veggie Pasta, Dinner: Sweet Potato Tacos",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Wednesday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Peanut Butter and Jelly Sandwich, Dinner: Daydream Sandwich",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Thursday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Veggie Pasta, Dinner: Sweet Potato Tacos",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Friday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Peanut Butter and Jelly Sandwich, Dinner: Daydream Sandwich",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Saturday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Veggie Pasta, Dinner: Sweet Potato Tacos",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Sunday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Veggie Pasta, Dinner: Sweet Potato Tacos",
+    },
+    {
+      userId: 2,
+      dayOfWeek: "Monday",
+      mealDescription:
+        "Breakfast: Cereal, Lunch: Ramen, Dinner: Broccoli Pasta",
+    },
+    {
+      userId: 2,
+      dayOfWeek: "Tuesday",
+      mealDescription:
+        "Breakfast: Protein Bar, Lunch: Quinoa Salad, Dinner: Mac and Cheese",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Wednesday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Peanut Butter and Jelly Sandwich, Dinner: Gnocchi",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Thursday",
+      mealDescription:
+        "Breakfast: Eggs, Lunch: Veggie Pasta, Dinner: Sweet Potato Tacos",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Friday",
+      mealDescription:
+        "Breakfast: Muffins, Lunch: Peanut Butter and Jelly Sandwich, Dinner: Daydream Sandwich",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Saturday",
+      mealDescription:
+        "Breakfast: Cereal, Lunch: Pretzels and Hummus, Dinner: Sweet Potato Tacos",
+    },
+    {
+      userId: 1,
+      dayOfWeek: "Sunday",
+      mealDescription:
+        "Breakfast: Baked Oats, Lunch: Veggie Pasta, Dinner: Sweet Potato Tacos",
+    },
+  ];
+
+  //Insert grocery lists into datanbase
+  await prisma.mealsForWeek.createMany({ data: mealsForWeekData });
+
+  //Create data for monthly budget
+  const budgetData = [
+    {
+      userId: 1,
+      category: "Groceries",
+      amount: 250,
+      isExpense: true,
+    },
+    {
+      userId: 1,
+      category: "2 Weeks Pay",
+      amount: 1500.75,
+      isExpense: false,
+    },
+  ];
+
+  //Insert budget into datanbase
+  await prisma.monthlyBudget.createMany({ data: budgetData });
+
+  //Create data for spend tracker
+  const spendingData = [
+    {
+      userId: 1,
+      description: "Vacation",
+      amount: 300.8,
+    },
+    {
+      userId: 3,
+      description: "Classroom decor",
+      amount: 150.2,
+    },
+  ];
+  //Insert budget into datanbase
+  await prisma.spendTracker.createMany({ data: spendingData });
 };
 
 module.exports = seedPersonal;
