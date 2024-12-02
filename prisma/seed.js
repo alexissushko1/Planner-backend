@@ -122,7 +122,7 @@ const emojiList = [
 
 const stickyNoteContent = "Type your note here...";
 
-const seed = async (numUsers = 30) => {
+const seed = async (numUsers = 5) => {
   const users = Array.from({ length: numUsers }, () => ({
     username: faker.internet.username(),
     email: faker.internet.email(),
@@ -171,6 +171,44 @@ const seed = async (numUsers = 30) => {
   console.log(
     ` Created ${numUsers} users and ${stickersData.length} stickers.`
   );
+
+  // Sticker Settings
+
+  const stickersSettingsData = [
+    {
+      userId: 1,
+      defaultColor: "blue",
+      defaultSizeWidth: 100,
+      defaultSizeHeight: 100,
+    },
+    {
+      userId: 2,
+      defaultColor: "pink",
+      defaultSizeWidth: 100,
+      defaultSizeHeight: 100,
+    },
+    {
+      userId: 3,
+      defaultColor: "green",
+      defaultSizeWidth: 60,
+      defaultSizeHeight: 60,
+    },
+    {
+      userId: 4,
+      defaultColor: "purple",
+      defaultSizeWidth: 40,
+      defaultSizeHeight: 40,
+    },
+    {
+      userId: 5,
+      defaultColor: "yellow",
+      defaultSizeWidth: 50,
+      defaultSizeHeight: 50,
+    },
+  ];
+
+  //Insert stickers into datanbase
+  await prisma.stickerSetting.createMany({ data: stickersSettingsData });
 };
 seed()
   .then(async () => await prisma.$disconnect())
