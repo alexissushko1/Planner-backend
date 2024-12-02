@@ -171,6 +171,40 @@ const seedPersonal = async (numPasswords = 5) => {
   ];
   //Insert budget into datanbase
   await prisma.spendTracker.createMany({ data: spendingData });
+
+  //Create medical data
+  const personalMedicalData = [
+    {
+      userId: 3,
+      medicalCondition: "Asthma",
+      prescription: "Azelaic acid",
+      doctorName: "Dr.Matthews",
+    },
+  ];
+
+  //Insert budget into datanbase
+  await prisma.personalMedical.createMany({ data: personalMedicalData });
+
+  //Create data for habit tracker
+  const habitData = [
+    {
+      userId: 2,
+      habitName: "Skincare",
+      frequency: "Daily",
+      goal: 2,
+      progress: 3,
+    },
+    {
+      userId: 4,
+      habitName: "Go to gym",
+      frequency: "Daily",
+      goal: 1,
+      progress: 1,
+    },
+  ];
+
+  //Insert budget into datanbase
+  await prisma.habitTracker.createMany({ data: habitData });
 };
 
 module.exports = seedPersonal;
