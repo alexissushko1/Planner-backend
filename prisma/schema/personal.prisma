@@ -35,7 +35,7 @@ model MonthlyBudget {
   id Int @id @default (autoincrement())
   userId Int
   category String // E.g., "Groceries", "Rent", etc.
-  amount Int
+  amount Float
   isExpense Boolean // Whether this is an expense (true) or income (false)
 
   user User @relation(fields: [userId], references: [id])
@@ -46,7 +46,7 @@ model SpendTracker {
   id Int @id @default (autoincrement())
   userId Int 
   description String // Description of the transaction
-  amount Int
+  amount Float
 
   user User @relation(fields: [userId], references: [id])
 }

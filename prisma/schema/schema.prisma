@@ -112,7 +112,7 @@ model ShoppingList {
   itemName String
   quantity Int
   store String
-  price Int
+  price Float
 
   user User @relation(fields: [userId], references: [id])
 }
