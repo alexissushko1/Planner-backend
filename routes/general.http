@@ -1,0 +1,241 @@
+@host = http://localhost:3000
+
+### Register new user
+POST {{host}}/register
+Content-Type: application/json
+
+{
+  "username": "example",
+  "email": "example@email.com",
+  "password": "password"
+}
+
+### Login user
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "username": "example",
+  "email": "example@email.com",
+  "password": "password"
+}
+
+### Get user information
+@token = {{login.response.body.token}}
+GET {{host}}/user
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Update Password
+PATCH {{host}}/update-profile
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "changedExample",
+  "email": "changedexample@email.com",
+  "password": "changedPassword"
+}
+
+### Get all stickers
+GET {{host}}/stickers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new sticker
+POST {{host}}/stickers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "content": "Type your new note here...",
+  "positionX": 300,
+  "positionY": 300,
+  "width": 300,
+  "height": 300,
+  "color": "Y#FFEB3B",
+  "zIndex": 585,
+}
+
+### Update a sticker
+PATCH {{host}}/stickers/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "content": "Changed note here...",
+  "positionX": 300,
+  "positionY": 300,
+  "width": 300,
+  "height": 300,
+  "color": "Y#FFEB3B",
+  "zIndex": 585,
+}
+
+### Delete a sticker
+DELETE {{host}}/stickers/5
+Authorization: Bearer {{token}}
+
+### Get all stickers settings
+GET {{host}}/sticker-settings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post sticker preference
+POST {{host}}/sticker-settings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 1,
+  "defaultColor": "blue",
+  "defaultSizeWidth": 100,
+  "defaultSizeHeight": 100,
+}
+
+### Update a sticker
+PATCH {{host}}/sticker-settings/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 1,
+  "defaultColor": "pink",
+  "defaultSizeWidth": 150,
+  "defaultSizeHeight": 150,
+}
+
+### Delete a sticker setting
+DELETE {{host}}/sticker-settings/5
+Authorization: Bearer {{token}}
+
+### Get all events on calendar
+GET {{host}}/calendar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new event
+POST {{host}}/calendar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 1,
+  "eventName": "Christmas Concert",
+  "eventDate": "2024-12-05T17:00:00Z",
+  "description": "School Christmas Concert",
+}
+
+### Update a event
+PATCH {{host}}/calendar/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 1,
+  "eventName": "3rd Grade Christmas Concert",
+  "eventDate" : "2024-12-06T17:00:00Z",
+  "description": "Changed date of Christmas concert"
+}
+
+### Delete a sticker
+DELETE {{host}}/calendar/3
+Authorization: Bearer {{token}}
+
+### Get all to do lists
+GET {{host}}/todo
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post to do 
+POST {{host}}/todo
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 1,
+  "taskName": "Clean car",
+  "isCompleted": false,
+}
+
+### Update a to do
+PATCH {{host}}/todo/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 1,
+  "taskName": "Clean and wash car",
+  "isCompleted": false,
+}
+
+### Delete a to do
+DELETE {{host}}/todo/5
+Authorization: Bearer {{token}}
+
+### Get all shopping lists
+GET {{host}}/shopping
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a shopping list
+POST {{host}}/shopping
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 5,
+  "itemName": "Pink Coat",
+  "quantity": 1,
+  "store": "Target",
+  "price": "25.75"
+}
+
+### Update a reflection survey
+PATCH {{host}}/shopping/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 5,
+  "itemName": "Green Coat",
+  "quantity": 1,
+  "store": "Target",
+  "price": "27.75"
+}
+
+### Delete a reflection survey
+DELETE {{host}}/shopping/5
+Authorization: Bearer {{token}}
+
+### Get all journals
+GET {{host}}/journal
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a journal entry
+POST {{host}}/journal
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 5,
+  "entryText": "Saw a cute cat."
+}
+
+### Update a reflection survey
+PATCH {{host}}/journal/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId:": 5,
+  "entryText": "Saw 2 cute cats."
+}
+
+### Delete a reflection survey
+DELETE {{host}}/journal/5
+Authorization: Bearer {{token}}
