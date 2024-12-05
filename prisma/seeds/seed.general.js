@@ -164,7 +164,7 @@ const seedUsers = async (numUsers = 5) => {
     return [...emojis, stickyNote];
   });
 
-  //Insert stickers into datanbase
+  //Insert stickers into database
   await prisma.sticker.createMany({ data: stickersData });
 
   //Delete console log later on
@@ -208,7 +208,7 @@ const seedUsers = async (numUsers = 5) => {
     },
   ];
 
-  //Insert sticker settings into datanbase
+  //Insert sticker settings into database
   await prisma.stickerSetting.createMany({ data: stickersSettingsData });
 
   //Create data for calendar events
@@ -246,7 +246,7 @@ const seedUsers = async (numUsers = 5) => {
     },
   ];
 
-  //Insert events into datanbase
+  //Insert events into database
   await prisma.calendarEvent.createMany({ data: calendarData });
 
   //Create data for ToDo Lists
@@ -289,7 +289,7 @@ const seedUsers = async (numUsers = 5) => {
     },
   ];
 
-  //Insert to dos into datanbase
+  //Insert to dos into database
   await prisma.toDoList.createMany({ data: todoListData });
 
   //Create reflection survey data
@@ -322,7 +322,7 @@ const seedUsers = async (numUsers = 5) => {
     },
   ];
 
-  //Insert reflection surveys into datanbase
+  //Insert reflection surveys into database
   await prisma.reflectionSurvey.createMany({ data: reflectionData });
 
   //Create Shopping List Data
@@ -420,7 +420,7 @@ const seedUsers = async (numUsers = 5) => {
       price: parseFloat(16.5),
     },
   ];
-  //Insert grocery shopping lists into datanbase
+  //Insert grocery shopping lists into database
   await prisma.shoppingList.createMany({ data: shoppingListData });
 
   //Create journal data
@@ -454,7 +454,7 @@ const seedUsers = async (numUsers = 5) => {
     },
   ];
 
-  //Insert journal entries into datanbase
+  //Insert journal entries into database
   await prisma.journal.createMany({ data: journalData });
 };
 

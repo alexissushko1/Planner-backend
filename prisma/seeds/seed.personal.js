@@ -42,7 +42,7 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert grocery lists into datanbase
+  //Insert grocery lists into database
   await prisma.groceryList.createMany({ data: groceryListData });
 
   //Created data for meals of the week
@@ -134,7 +134,7 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert grocery lists into datanbase
+  //Insert grocery lists into database
   await prisma.mealsForWeek.createMany({ data: mealsForWeekData });
 
   //Create data for monthly budget
@@ -153,7 +153,7 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert budget into datanbase
+  //Insert budget into database
   await prisma.monthlyBudget.createMany({ data: budgetData });
 
   //Create data for spend tracker
@@ -169,7 +169,7 @@ const seedPersonal = async (numPasswords = 5) => {
       amount: 150.2,
     },
   ];
-  //Insert budget into datanbase
+  //Insert budget into database
   await prisma.spendTracker.createMany({ data: spendingData });
 
   //Create medical data
@@ -182,7 +182,7 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert budget into datanbase
+  //Insert budget into database
   await prisma.personalMedical.createMany({ data: personalMedicalData });
 
   //Create data for habit tracker
@@ -203,8 +203,35 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert budget into datanbase
+  //Insert budget into database
   await prisma.habitTracker.createMany({ data: habitData });
+
+  //Create data for cleaning tracker
+  const cleaningData = [
+    {
+      userId: 1,
+      taskName: "Wipe counters",
+      isCompleted: false,
+    },
+    {
+      userId: 2,
+      taskName: "Take out trash",
+      isCompleted: true,
+    },
+    {
+      userId: 4,
+      taskName: "Sweep",
+      isCompleted: true,
+    },
+    {
+      userId: 4,
+      taskName: "Mop",
+      isCompleted: false,
+    },
+  ];
+
+  //Insert cleaning data into database
+  await prisma.cleaningChecklist.createMany({ data: cleaningData });
 };
 
 module.exports = seedPersonal;
