@@ -6,7 +6,11 @@
   "dependencies": {
     "@faker-js/faker": "^9.2.0",
     "@prisma/client": "^5.22.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0"
   },
   "prisma": {
@@ -14,6 +18,11 @@
   },
   "scripts": {
     "seed": "node prisma/seed.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build": "prisma generate"
+  },
+  "enginges": {
+    "node": ">=20.16.0"
   }
 }
