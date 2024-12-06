@@ -169,7 +169,7 @@ const seedPersonal = async (numPasswords = 5) => {
       amount: 150.2,
     },
   ];
-  //Insert budget into database
+  //Insert spending into database
   await prisma.spendTracker.createMany({ data: spendingData });
 
   //Create medical data
@@ -182,7 +182,7 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert budget into database
+  //Insert medical into database
   await prisma.personalMedical.createMany({ data: personalMedicalData });
 
   //Create data for habit tracker
@@ -203,7 +203,7 @@ const seedPersonal = async (numPasswords = 5) => {
     },
   ];
 
-  //Insert budget into database
+  //Insert habit tracker into database
   await prisma.habitTracker.createMany({ data: habitData });
 
   //Create data for cleaning tracker
