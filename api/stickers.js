@@ -24,7 +24,7 @@ router.post("/sticker", authenticate, async (req, res, next) => {
     width,
     height,
     color,
-    zIndex,
+    zIndex
   } = req.body;
   try {
     const sticker = await prisma.sticker.create({
@@ -36,8 +36,8 @@ router.post("/sticker", authenticate, async (req, res, next) => {
         width,
         height,
         color,
-        zIndex,
-      },
+        zIndex
+      }
     });
     res.status(201).json(sticker);
   } catch (e) {
@@ -56,17 +56,17 @@ router.patch("/sticker/:id", authenticate, async (req, res, next) => {
     width,
     height,
     color,
-    zIndex,
+    zIndex
   } = req.body;
 
   try {
     const sticker = await prisma.sticker.findUniqueOrThrow({
-      where: { id: +id },
+      where: { id: +id }
     });
     if (!sticker) {
       return next({
         status: 404,
-        message: `Sticker ${id} does not exist`,
+        message: `Sticker ${id} does not exist`
       });
     }
 
@@ -82,7 +82,7 @@ router.patch("/sticker/:id", authenticate, async (req, res, next) => {
 
     const updatedSticker = await prisma.sticker.update({
       where: { id: +id },
-      data: updateData,
+      data: updateData
     });
     res.json(updatedSticker);
   } catch (e) {
@@ -90,4 +90,46 @@ router.patch("/sticker/:id", authenticate, async (req, res, next) => {
   }
 });
 
+//Delete a sticker
+router.delete("/sticker/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const sticker = await prisma.sticker.findUniqueOrThrow({
+      where: { id: +id }
+    });
+    await prisma.sticker.delete({ where: { id: +id } });
+    res.sendStatus(204);
+  } catch (e) {
+    next(e);
+  }
+});
+
+//Get all sticker settings
+router.get("/sticker-settings", authenticate, async (req, res, next) => {
+  try {
+    const stickerSettings = await prisma.stickerSetting.findMany();
+    res.json(stickerSettings);
+  } catch (e) {
+    next(e);
+  }
+});
+
+//Add a sticker preference
+router.post("/sticker-settings", authenticate, async (req, res, next) => {
+  const { userId, defaultColor, defaultSizeWidth, defaultSizeHeight } =
+    req.body;
+  try {
+    const stickerSettings = await prisma.stickerSetting.create({
+      data: {
+        userId,
+        defaultColor,
+        defaultSizeWidth,
+        defaultSizeHeight
+      }
+    });
+    res.status(201).json(stickerSettings);
+  } catch (e) {
+    next(e);
+  }
+});
 module.exports = router;
