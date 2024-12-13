@@ -1,3 +1,4 @@
+const bcrypt = require("bcryptjs");
 const express = require("express");
 const router = express.Router();
 
@@ -76,6 +77,83 @@ function authenticate(req, res, next) {
     next({ status: 404, message: "You must login first" });
   }
 }
+
+// Get user information
+
+router.get("/user", authenticate, async (req, res, next) => {
+  try {
+    const user = await prisma.user.findMany();
+    res.json(user);
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.patch("/update-profile", authenticate, async (req, res, next) => {
+  const { username, email, password } = req.body;
+
+  //Make sure user is authenticated
+  if (!req.user || !req.user.id) {
+    return res.status(401).json({ error: "User not authenticated." });
+  }
+
+  try {
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        id: req.user.id,
+      },
+    });
+
+    if (!existingUser) {
+      return res.status(404).json({ error: "User not found." });
+    }
+
+    //Update the profile
+    const updatedData = {};
+
+    if (username && username !== existingUser.username) {
+      const usernameExists = await prisma.user.findUnique({
+        where: { username },
+      });
+
+      if (usernameExists && usernameExists.id !== req.user.id) {
+        return res.status(400).json({ error: "Username already exists." });
+      }
+
+      updatedData.username = username;
+    }
+
+    if (email && email !== existingUser.email) {
+      const emailExists = await prisma.user.findUnique({
+        where: { email },
+      });
+
+      if (emailExists && emailExists.id !== req.user.id) {
+        return res.status(400).json({ error: "Email already exists." });
+      }
+      updatedData.email = email;
+    }
+
+    // If password is given, hash it and include in updated profile
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      updatedData.password = hashedPassword;
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: req.user.id },
+      data: updatedData,
+    });
+
+    res.json({
+      id: updatedUser.id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+    });
+  } catch (e) {
+    next(e);
+  }
+});
 
 module.exports = {
   router,
