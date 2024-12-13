@@ -5,8 +5,8 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-  "username": "example",
-  "email": "example@email.com",
+  "username": "test",
+  "email": "test@email.com",
   "password": "password"
 }
 
@@ -16,8 +16,8 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "example",
-  "email": "example@email.com",
+  "username": "test",
+  "email": "test@email.com",
   "password": "password"
 }
 
@@ -27,14 +27,14 @@ GET {{host}}/user
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
-### Update Password
+### Update Profile
 PATCH {{host}}/update-profile
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "changedExample",
-  "email": "changedexample@email.com",
+  "username": "NewChangedTest",
+  "email": "test@email.com",
   "password": "changedPassword"
 }
 
