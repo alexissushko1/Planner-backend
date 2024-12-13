@@ -5,8 +5,8 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-  "username": "test",
-  "email": "test@email.com",
+  "username": "test2",
+  "email": "test2@email.com",
   "password": "password"
 }
 
@@ -16,9 +16,9 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "Test",
-  "email": "test@email.com",
-  "password": "Password"
+  "username": "test2",
+  "email": "test2@email.com",
+  "password": "password"
 }
 
 ### Get user information
@@ -33,8 +33,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "ChangedTest",
-  "email": "test@email.com",
+  "username": "ChangedTest2",
+  "email": "test2@email.com",
   "password": "ChangedPassword"
 }
 
@@ -44,7 +44,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a new sticker
-POST {{host}}/stickers
+POST {{host}}/api/stickers/sticker
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -56,11 +56,11 @@ Content-Type: application/json
   "width": 300,
   "height": 300,
   "color": "Y#FFEB3B",
-  "zIndex": 585,
+  "zIndex": 585
 }
 
 ### Update a sticker
-PATCH {{host}}/stickers/1
+PATCH {{host}}/api/stickers/sticker/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -72,11 +72,11 @@ Content-Type: application/json
   "width": 300,
   "height": 300,
   "color": "Y#FFEB3B",
-  "zIndex": 585,
+  "zIndex": 585
 }
 
 ### Delete a sticker
-DELETE {{host}}/stickers/5
+DELETE {{host}}/api/stickers/sticker/5
 Authorization: Bearer {{token}}
 
 ### Get all stickers settings
