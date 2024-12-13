@@ -24,7 +24,7 @@ router.post("/sticker", authenticate, async (req, res, next) => {
     width,
     height,
     color,
-    zIndex
+    zIndex,
   } = req.body;
   try {
     const sticker = await prisma.sticker.create({
@@ -36,8 +36,8 @@ router.post("/sticker", authenticate, async (req, res, next) => {
         width,
         height,
         color,
-        zIndex
-      }
+        zIndex,
+      },
     });
     res.status(201).json(sticker);
   } catch (e) {
@@ -56,17 +56,17 @@ router.patch("/sticker/:id", authenticate, async (req, res, next) => {
     width,
     height,
     color,
-    zIndex
+    zIndex,
   } = req.body;
 
   try {
     const sticker = await prisma.sticker.findUniqueOrThrow({
-      where: { id: +id }
+      where: { id: +id },
     });
     if (!sticker) {
       return next({
         status: 404,
-        message: `Sticker ${id} does not exist`
+        message: `Sticker ${id} does not exist`,
       });
     }
 
@@ -82,7 +82,7 @@ router.patch("/sticker/:id", authenticate, async (req, res, next) => {
 
     const updatedSticker = await prisma.sticker.update({
       where: { id: +id },
-      data: updateData
+      data: updateData,
     });
     res.json(updatedSticker);
   } catch (e) {
@@ -95,7 +95,7 @@ router.delete("/sticker/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
   try {
     const sticker = await prisma.sticker.findUniqueOrThrow({
-      where: { id: +id }
+      where: { id: +id },
     });
     await prisma.sticker.delete({ where: { id: +id } });
     res.sendStatus(204);
@@ -124,10 +124,57 @@ router.post("/sticker-settings", authenticate, async (req, res, next) => {
         userId,
         defaultColor,
         defaultSizeWidth,
-        defaultSizeHeight
-      }
+        defaultSizeHeight,
+      },
     });
     res.status(201).json(stickerSettings);
+  } catch (e) {
+    next(e);
+  }
+});
+
+//Update sticker preferences
+router.patch("/sticker-settings/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  const { userId, defaultColor, defaultSizeWidth, defaultSizeHeight } =
+    req.body;
+
+  try {
+    const stickerSettings = await prisma.stickerSetting.findUniqueOrThrow({
+      where: { id: +id },
+    });
+    if (!stickerSettings) {
+      return next({
+        status: 404,
+        message: `Sticker setting ${id} does not exist`,
+      });
+    }
+
+    const updateData = {};
+    if (userId) updateData.userId = +userId;
+    if (defaultColor) updateData.defaultColor = defaultColor;
+    if (defaultSizeWidth) updateData.defaultSizeWidth = defaultSizeWidth;
+    if (defaultSizeHeight) updateData.defaultSizeHeight = defaultSizeHeight;
+
+    const updatedStickerSettings = await prisma.stickerSetting.update({
+      where: { id: +id },
+      data: updateData,
+    });
+    res.json(updatedStickerSettings);
+  } catch (e) {
+    next(e);
+  }
+});
+
+//Delete sticker preference
+router.delete("/sticker-settings/:id", authenticate, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const stickerSettings = await prisma.stickerSetting.findUniqueOrThrow({
+      where: { id: +id },
+    });
+    await prisma.stickerSetting.delete({ where: { id: +id } });
+    res.sendStatus(204);
   } catch (e) {
     next(e);
   }

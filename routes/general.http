@@ -97,19 +97,19 @@ Content-Type: application/json
 }
 
 ### Update a sticker
-PATCH {{host}}/sticker-settings/1
+PATCH {{host}}/api/stickers/sticker-settings/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
-  "defaultColor": "pink",
+  "userId": 1,
+  "defaultColor": "purple",
   "defaultSizeWidth": 150,
-  "defaultSizeHeight": 150,
+  "defaultSizeHeight": 150
 }
 
 ### Delete a sticker setting
-DELETE {{host}}/sticker-settings/5
+DELETE {{host}}/api/stickers/sticker-settings/5
 Authorization: Bearer {{token}}
 
 ### Get all events on calendar
@@ -141,7 +141,7 @@ Content-Type: application/json
   "description": "Changed date of Christmas concert"
 }
 
-### Delete a sticker
+### Delete a event
 DELETE {{host}}/calendar/3
 Authorization: Bearer {{token}}
 
