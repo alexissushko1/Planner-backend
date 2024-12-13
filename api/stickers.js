@@ -4,10 +4,10 @@ const router = express.Router();
 const { authenticate } = require("./auth");
 const prisma = require("../prisma");
 
-router.get("/", authenticate, async (req, res, next) => {
+router.get("/sticker", authenticate, async (req, res, next) => {
   try {
-    const stickers = await prisma.stickers.findMany({});
-    res.json(stickers);
+    const sticker = await prisma.sticker.findMany();
+    res.json(sticker);
   } catch (e) {
     next(e);
   }
