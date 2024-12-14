@@ -146,69 +146,69 @@ DELETE {{host}}/api/events/event/3
 Authorization: Bearer {{token}}
 
 ### Get all to do lists
-GET {{host}}/todo
+GET {{host}}/api/lists/todo
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post to do 
-POST {{host}}/todo
+POST {{host}}/api/lists/todo
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
+  "userId": 1,
   "taskName": "Clean car",
-  "isCompleted": false,
+  "isCompleted": false
 }
 
 ### Update a to do
-PATCH {{host}}/todo/1
+PATCH {{host}}/api/lists/todo/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
   "userId:": 1,
   "taskName": "Clean and wash car",
-  "isCompleted": false,
+  "isCompleted": false
 }
 
 ### Delete a to do
-DELETE {{host}}/todo/5
+DELETE {{host}}/api/lists/todo/5
 Authorization: Bearer {{token}}
 
 ### Get all shopping lists
-GET {{host}}/shopping
+GET {{host}}/api/lists/shopping
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a shopping list
-POST {{host}}/shopping
+POST {{host}}/api/lists/shopping
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 5,
+  "userId": 5,
   "itemName": "Pink Coat",
   "quantity": 1,
   "store": "Target",
-  "price": "25.75"
+  "price": 25.75
 }
 
 ### Update a shopping list
-PATCH {{host}}/shopping/1
+PATCH {{host}}/api/lists/shopping/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 5,
+  "userId": 5,
   "itemName": "Green Coat",
   "quantity": 1,
   "store": "Target",
-  "price": "27.75"
+  "price": 27.75
 }
 
 ### Delete a shopping list
-DELETE {{host}}/shopping/5
+DELETE {{host}}/api/lists/shopping/5
 Authorization: Bearer {{token}}
 
 ### Get all journals
