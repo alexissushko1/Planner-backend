@@ -10,6 +10,7 @@ app.use(require("./api/auth").router);
 app.use("/api/stickers", require("./api/stickers"));
 app.use("/api/events", require("./api/events"));
 app.use("/api/lists", require("./api/lists"));
+app.use("/api/journals", require("./api/journals"));
 
 // Logging middleware
 app.use((req, res, next) => {

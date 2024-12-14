@@ -16,9 +16,9 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "test3",
+  "username": "ChangedTest3",
   "email": "test3@email.com",
-  "password": "password"
+  "password": "ChangedPassword"
 }
 
 ### Get user information
@@ -33,9 +33,9 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "ChangedTest3",
+  "username": "changedtest3",
   "email": "test3@email.com",
-  "password": "ChangedPassword"
+  "password": "changedPassword"
 }
 
 ### Get all stickers
@@ -212,22 +212,22 @@ DELETE {{host}}/api/lists/shopping/5
 Authorization: Bearer {{token}}
 
 ### Get all journals
-GET {{host}}/journal
+GET {{host}}/api/journals/journal
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a journal entry
-POST {{host}}/journal
+POST {{host}}/api/journals/journal
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 5,
+  "userId": 5,
   "entryText": "Saw a cute cat."
 }
 
 ### Update a journal entry 
-PATCH {{host}}/journal/1
+PATCH {{host}}/api/journals/journal/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -237,5 +237,5 @@ Content-Type: application/json
 }
 
 ### Delete a journal entry
-DELETE {{host}}/journal/5
+DELETE {{host}}/api/journals/journal/5
 Authorization: Bearer {{token}}
