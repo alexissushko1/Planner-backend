@@ -8,6 +8,7 @@ app.use(express.json());
 
 app.use(require("./api/auth").router);
 app.use("/api/stickers", require("./api/stickers"));
+app.use("/api/events", require("./api/events"));
 
 // Logging middleware
 app.use((req, res, next) => {

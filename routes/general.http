@@ -109,40 +109,40 @@ Content-Type: application/json
 }
 
 ### Delete a sticker setting
-DELETE {{host}}/api/stickers/sticker-settings/5
+DELETE {{host}}/api/stickers/sticker-settings/4
 Authorization: Bearer {{token}}
 
 ### Get all events on calendar
-GET {{host}}/calendar
+GET {{host}}/api/events/event
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a new event
-POST {{host}}/calendar
+POST {{host}}/api/events/event
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
+  "userId": 1,
   "eventName": "Christmas Concert",
   "eventDate": "2024-12-05T17:00:00Z",
-  "description": "School Christmas Concert",
+  "description": "School Christmas Concert"
 }
 
 ### Update a event
-PATCH {{host}}/calendar/1
+PATCH {{host}}/api/events/event/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
+  "userId": 1,
   "eventName": "3rd Grade Christmas Concert",
   "eventDate" : "2024-12-06T17:00:00Z",
   "description": "Changed date of Christmas concert"
 }
 
 ### Delete a event
-DELETE {{host}}/calendar/3
+DELETE {{host}}/api/events/event/3
 Authorization: Bearer {{token}}
 
 ### Get all to do lists
@@ -194,7 +194,7 @@ Content-Type: application/json
   "price": "25.75"
 }
 
-### Update a reflection survey
+### Update a shopping list
 PATCH {{host}}/shopping/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -207,7 +207,7 @@ Content-Type: application/json
   "price": "27.75"
 }
 
-### Delete a reflection survey
+### Delete a shopping list
 DELETE {{host}}/shopping/5
 Authorization: Bearer {{token}}
 
@@ -226,7 +226,7 @@ Content-Type: application/json
   "entryText": "Saw a cute cat."
 }
 
-### Update a reflection survey
+### Update a journal entry 
 PATCH {{host}}/journal/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -236,6 +236,6 @@ Content-Type: application/json
   "entryText": "Saw 2 cute cats."
 }
 
-### Delete a reflection survey
+### Delete a journal entry
 DELETE {{host}}/journal/5
 Authorization: Bearer {{token}}
