@@ -305,3 +305,34 @@ Content-Type: application/json
 ### Delete a grocery list
 DELETE {{host}}/api/food/grocery/5
 Authorization: Bearer {{token}}
+
+### Get all meals for week
+GET {{host}}/api/food/weekly-meals
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a meal
+POST {{host}}/api/food/weekly-meals
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "dayOfWeek": "Monday",
+  "mealDescription": "Breakfast: Granola, Lunch: Salad, Dinner: Sweet Potato Tacos"
+}
+
+### Update a meal
+PATCH {{host}}/api/food/weekly-meals/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+ {
+  "userId": 3,
+  "dayOfWeek": "Tuesday",
+  "mealDescription": "Breakfast: Oatmeal, Lunch: Salad, Dinner: Sweet Potato Tacos"
+}
+
+### Delete a meal
+DELETE {{host}}/api/food/weekly-meals/5
+Authorization: Bearer {{token}}
