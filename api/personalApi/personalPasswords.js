@@ -54,11 +54,11 @@ router.patch("/password/:id", authenticate, async (req, res, next) => {
     if (eventDate) updateData.eventDate = eventDate;
     if (description) updateData.description = description;
 
-    const updatedEvent = await prisma.personalPassword.update({
+    const updatedPassword = await prisma.personalPassword.update({
       where: { id: +id },
       data: updateData,
     });
-    res.json(updatedEvent);
+    res.json(updatedPassword);
   } catch (e) {
     next(e);
   }
