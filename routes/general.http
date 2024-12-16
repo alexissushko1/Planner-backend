@@ -369,3 +369,34 @@ Content-Type: application/json
 ### Delete a budget entry
 DELETE {{host}}/api/personalFinances/budget/5
 Authorization: Bearer {{token}}
+
+### Get all spending entries
+GET {{host}}/api/personalFinances/personal-spending
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a spending entry
+POST {{host}}/api/personalFinances/personal-spending
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "description": "Vacation",
+  "amount": 400
+}
+
+### Update a spending entry
+PATCH {{host}}/api/personalFinances/personal-spending/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "description": "Family Visit",
+  "amount": 200
+}
+
+### Delete a spending entry
+DELETE {{host}}/api/personalFinances/personal-spending/5
+Authorization: Bearer {{token}}
