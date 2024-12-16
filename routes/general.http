@@ -398,5 +398,38 @@ Content-Type: application/json
 }
 
 ### Delete a spending entry
-DELETE {{host}}/api/personalFinances/personal-spending/5
+DELETE {{host}}/api/personalFinances/personal-spending/6
+Authorization: Bearer {{token}}
+
+### Get all medical data
+GET {{host}}/api/medical/medical
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a medical entry
+POST {{host}}/api/medical/medical
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "medicalCondition": "Asthma",
+  "prescription": "Azelaic acid",
+  "doctorName": "Dr.Matthews"
+}
+
+### Update a medical entry
+PATCH {{host}}/api/medical/medical/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "medicalCondition": "Rosacea",
+  "prescription": "Eucerin lotion",
+  "doctorName": "Dr.Matthews"
+}
+
+### Delete a medical entry
+DELETE {{host}}/api/medical/medical/5
 Authorization: Bearer {{token}}

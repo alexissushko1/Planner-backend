@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Update a personal password
-PATCH {{host}}/personal/passwords/1
+PATCH {{host}}/personalPasswords/personal-password/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ### Delete a personal password
-DELETE {{host}}/personal/passwords/5
+DELETE {{host}}/personalPasswords/personal-passwords/5
 Authorization: Bearer {{token}}
 
 ### Get all grocery lists
