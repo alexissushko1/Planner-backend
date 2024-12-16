@@ -6,11 +6,15 @@ const PORT = 3000;
 app.use(require("morgan")("dev"));
 app.use(express.json());
 
-app.use(require("./api/auth").router);
-app.use("/api/stickers", require("./api/stickers"));
-app.use("/api/events", require("./api/events"));
-app.use("/api/lists", require("./api/lists"));
-app.use("/api/journals", require("./api/journals"));
+app.use(require("./api/generalApi/auth").router);
+app.use("/api/stickers", require("./api/generalApi/stickers"));
+app.use("/api/events", require("./api/generalApi/events"));
+app.use("/api/lists", require("./api/generalApi/lists"));
+app.use("/api/journals", require("./api/generalApi/journals"));
+app.use(
+  "/api/personalPasswords",
+  require("./api/personalApi/personalPasswords")
+);
 
 // Logging middleware
 app.use((req, res, next) => {

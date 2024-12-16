@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { authenticate } = require("./auth");
-const prisma = require("../prisma");
+const prisma = require("../../prisma");
 
 //Get all calendar events
 router.get("/event", authenticate, async (req, res, next) => {

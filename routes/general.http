@@ -5,8 +5,8 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-  "username": "test3",
-  "email": "test3@email.com",
+  "username": "newuser",
+  "email": "user@email.com",
   "password": "password"
 }
 
@@ -16,9 +16,9 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "ChangedTest3",
-  "email": "test3@email.com",
-  "password": "ChangedPassword"
+  "username": "newuser",
+  "email": "user@email.com",
+  "password": "changedPassword"
 }
 
 ### Get user information
@@ -33,8 +33,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "changedtest3",
-  "email": "test3@email.com",
+  "username": "newuser",
+  "email": "user@email.com",
   "password": "changedPassword"
 }
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 }
 
 ### Delete a sticker
-DELETE {{host}}/api/stickers/sticker/5
+DELETE {{host}}/api/stickers/sticker/7
 Authorization: Bearer {{token}}
 
 ### Get all stickers settings
@@ -109,7 +109,7 @@ Content-Type: application/json
 }
 
 ### Delete a sticker setting
-DELETE {{host}}/api/stickers/sticker-settings/4
+DELETE {{host}}/api/stickers/sticker-settings/3
 Authorization: Bearer {{token}}
 
 ### Get all events on calendar
@@ -142,7 +142,7 @@ Content-Type: application/json
 }
 
 ### Delete a event
-DELETE {{host}}/api/events/event/3
+DELETE {{host}}/api/events/event/4
 Authorization: Bearer {{token}}
 
 ### Get all to do lists
@@ -173,7 +173,7 @@ Content-Type: application/json
 }
 
 ### Delete a to do
-DELETE {{host}}/api/lists/todo/5
+DELETE {{host}}/api/lists/todo/6
 Authorization: Bearer {{token}}
 
 ### Get all shopping lists
@@ -208,7 +208,7 @@ Content-Type: application/json
 }
 
 ### Delete a shopping list
-DELETE {{host}}/api/lists/shopping/5
+DELETE {{host}}/api/lists/shopping/6
 Authorization: Bearer {{token}}
 
 ### Get all journals
@@ -237,5 +237,38 @@ Content-Type: application/json
 }
 
 ### Delete a journal entry
-DELETE {{host}}/api/journals/journal/5
+DELETE {{host}}/api/journals/journal/2
+Authorization: Bearer {{token}}
+
+### Get all personal passwords
+GET {{host}}/api/personalPasswords/password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a personal password
+POST {{host}}/api/personalPasswords/password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "accountName": "Example account",
+  "username": "ExampleUsername",
+  "password": "ExamplePassword"
+}
+
+### Update a personal password
+PATCH {{host}}/api/personalPasswords/password/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "accountName": "Example changed account",
+  "username": "ExampleChangedUsername",
+  "password": "ExampleChangedPassword"
+}
+
+### Delete a personal password
+DELETE {{host}}/api/personalPasswords/password/5
 Authorization: Bearer {{token}}
