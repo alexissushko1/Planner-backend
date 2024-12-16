@@ -18,6 +18,7 @@ app.use(
 app.use("/api/food", require("./api/personalApi/food"));
 app.use("/api/personalFinances", require("./api/personalApi/personalFinances"));
 app.use("/api/medical", require("./api/personalApi/medical"));
+app.use("/api/habits", require("./api/personalApi/habits"));
 
 // Logging middleware
 app.use((req, res, next) => {

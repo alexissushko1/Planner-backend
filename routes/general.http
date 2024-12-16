@@ -433,3 +433,38 @@ Content-Type: application/json
 ### Delete a medical entry
 DELETE {{host}}/api/medical/medical/5
 Authorization: Bearer {{token}}
+
+### Get all habit tracker data
+GET {{host}}/api/habits/habit
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a habit tracker entry
+POST {{host}}/api/habits/habit
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "habitName": "Skincare",
+  "frequency": "daily",
+  "goal": 2,
+  "progress": 3
+}
+
+### Update a habit tracker entry
+PATCH {{host}}/api/habits/habit/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "habitName": "Haircare",
+  "frequency": "daily",
+  "goal": 1,
+  "progress": 3
+}
+
+### Delete a habit tracker entry
+DELETE {{host}}/api/habits/habit/5
+Authorization: Bearer {{token}}
