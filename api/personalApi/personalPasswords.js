@@ -38,13 +38,13 @@ router.patch("/password/:id", authenticate, async (req, res, next) => {
   const { userId, eventName, eventDate, description } = req.body;
 
   try {
-    const event = await prisma.calendarEvent.findUniqueOrThrow({
+    const password = await prisma.personalPassword.findUniqueOrThrow({
       where: { id: +id },
     });
-    if (!event) {
+    if (!password) {
       return next({
         status: 404,
-        message: `Event ${id} does not exist`,
+        message: `Password ${id} does not exist`,
       });
     }
 
@@ -54,7 +54,7 @@ router.patch("/password/:id", authenticate, async (req, res, next) => {
     if (eventDate) updateData.eventDate = eventDate;
     if (description) updateData.description = description;
 
-    const updatedEvent = await prisma.calendarEvent.update({
+    const updatedEvent = await prisma.personalPassword.update({
       where: { id: +id },
       data: updateData,
     });
@@ -68,10 +68,10 @@ router.patch("/password/:id", authenticate, async (req, res, next) => {
 router.delete("/password/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
   try {
-    const event = await prisma.calendarEvent.findUniqueOrThrow({
+    const password = await prisma.personalPassword.findUniqueOrThrow({
       where: { id: +id },
     });
-    await prisma.calendarEvent.delete({ where: { id: +id } });
+    await prisma.personalPassword.delete({ where: { id: +id } });
     res.sendStatus(204);
   } catch (e) {
     next(e);

@@ -272,3 +272,36 @@ Content-Type: application/json
 ### Delete a personal password
 DELETE {{host}}/api/personalPasswords/password/5
 Authorization: Bearer {{token}}
+
+### Get all grocery lists
+GET {{host}}/api/food/grocery
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a grocery list
+POST {{host}}/api/food/grocery
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "itemName": "Almond Milk",
+  "quantity": 2,
+  "isPurchased": false
+}
+
+### Update a grocery listt
+PATCH {{host}}/api/food/grocery/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "itemName": "Oat Milk",
+  "quantity": 2,
+  "isPurchased": false
+}
+
+### Delete a grocery list
+DELETE {{host}}/api/food/grocery/5
+Authorization: Bearer {{token}}

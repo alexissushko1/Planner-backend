@@ -15,6 +15,7 @@ app.use(
   "/api/personalPasswords",
   require("./api/personalApi/personalPasswords")
 );
+app.use("/api/food", require("./api/personalApi/food"));
 
 // Logging middleware
 app.use((req, res, next) => {
