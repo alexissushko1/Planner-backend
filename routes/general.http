@@ -5,8 +5,8 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-  "username": "test3",
-  "email": "test3@email.com",
+  "username": "newuser",
+  "email": "user@email.com",
   "password": "password"
 }
 
@@ -16,9 +16,9 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "test3",
-  "email": "test3@email.com",
-  "password": "password"
+  "username": "newuser",
+  "email": "user@email.com",
+  "password": "changedPassword"
 }
 
 ### Get user information
@@ -33,9 +33,9 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "ChangedTest3",
-  "email": "test3@email.com",
-  "password": "ChangedPassword"
+  "username": "newuser",
+  "email": "user@email.com",
+  "password": "changedPassword"
 }
 
 ### Get all stickers
@@ -76,7 +76,7 @@ Content-Type: application/json
 }
 
 ### Delete a sticker
-DELETE {{host}}/api/stickers/sticker/5
+DELETE {{host}}/api/stickers/sticker/7
 Authorization: Bearer {{token}}
 
 ### Get all stickers settings
@@ -109,125 +109,125 @@ Content-Type: application/json
 }
 
 ### Delete a sticker setting
-DELETE {{host}}/api/stickers/sticker-settings/5
+DELETE {{host}}/api/stickers/sticker-settings/3
 Authorization: Bearer {{token}}
 
 ### Get all events on calendar
-GET {{host}}/calendar
+GET {{host}}/api/events/event
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a new event
-POST {{host}}/calendar
+POST {{host}}/api/events/event
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
+  "userId": 1,
   "eventName": "Christmas Concert",
   "eventDate": "2024-12-05T17:00:00Z",
-  "description": "School Christmas Concert",
+  "description": "School Christmas Concert"
 }
 
 ### Update a event
-PATCH {{host}}/calendar/1
+PATCH {{host}}/api/events/event/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
+  "userId": 1,
   "eventName": "3rd Grade Christmas Concert",
   "eventDate" : "2024-12-06T17:00:00Z",
   "description": "Changed date of Christmas concert"
 }
 
 ### Delete a event
-DELETE {{host}}/calendar/3
+DELETE {{host}}/api/events/event/4
 Authorization: Bearer {{token}}
 
 ### Get all to do lists
-GET {{host}}/todo
+GET {{host}}/api/lists/todo
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post to do 
-POST {{host}}/todo
+POST {{host}}/api/lists/todo
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 1,
+  "userId": 1,
   "taskName": "Clean car",
-  "isCompleted": false,
+  "isCompleted": false
 }
 
 ### Update a to do
-PATCH {{host}}/todo/1
+PATCH {{host}}/api/lists/todo/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
   "userId:": 1,
   "taskName": "Clean and wash car",
-  "isCompleted": false,
+  "isCompleted": false
 }
 
 ### Delete a to do
-DELETE {{host}}/todo/5
+DELETE {{host}}/api/lists/todo/6
 Authorization: Bearer {{token}}
 
 ### Get all shopping lists
-GET {{host}}/shopping
+GET {{host}}/api/lists/shopping
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a shopping list
-POST {{host}}/shopping
+POST {{host}}/api/lists/shopping
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 5,
+  "userId": 5,
   "itemName": "Pink Coat",
   "quantity": 1,
   "store": "Target",
-  "price": "25.75"
+  "price": 25.75
 }
 
-### Update a reflection survey
-PATCH {{host}}/shopping/1
+### Update a shopping list
+PATCH {{host}}/api/lists/shopping/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 5,
+  "userId": 5,
   "itemName": "Green Coat",
   "quantity": 1,
   "store": "Target",
-  "price": "27.75"
+  "price": 27.75
 }
 
-### Delete a reflection survey
-DELETE {{host}}/shopping/5
+### Delete a shopping list
+DELETE {{host}}/api/lists/shopping/6
 Authorization: Bearer {{token}}
 
 ### Get all journals
-GET {{host}}/journal
+GET {{host}}/api/journals/journal
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 ### Post a journal entry
-POST {{host}}/journal
+POST {{host}}/api/journals/journal
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId:": 5,
+  "userId": 5,
   "entryText": "Saw a cute cat."
 }
 
-### Update a reflection survey
-PATCH {{host}}/journal/1
+### Update a journal entry 
+PATCH {{host}}/api/journals/journal/1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -236,6 +236,235 @@ Content-Type: application/json
   "entryText": "Saw 2 cute cats."
 }
 
-### Delete a reflection survey
-DELETE {{host}}/journal/5
+### Delete a journal entry
+DELETE {{host}}/api/journals/journal/2
+Authorization: Bearer {{token}}
+
+### Get all personal passwords
+GET {{host}}/api/personalPasswords/password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a personal password
+POST {{host}}/api/personalPasswords/password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "accountName": "Example account",
+  "username": "ExampleUsername",
+  "password": "ExamplePassword"
+}
+
+### Update a personal password
+PATCH {{host}}/api/personalPasswords/password/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "accountName": "Example changed account",
+  "username": "ExampleChangedUsername",
+  "password": "ExampleChangedPassword"
+}
+
+### Delete a personal password
+DELETE {{host}}/api/personalPasswords/password/5
+Authorization: Bearer {{token}}
+
+### Get all grocery lists
+GET {{host}}/api/food/grocery
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a grocery list
+POST {{host}}/api/food/grocery
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "itemName": "Almond Milk",
+  "quantity": 2,
+  "isPurchased": false
+}
+
+### Update a grocery listt
+PATCH {{host}}/api/food/grocery/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "itemName": "Oat Milk",
+  "quantity": 2,
+  "isPurchased": false
+}
+
+### Delete a grocery list
+DELETE {{host}}/api/food/grocery/5
+Authorization: Bearer {{token}}
+
+### Get all meals for week
+GET {{host}}/api/food/weekly-meals
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a meal
+POST {{host}}/api/food/weekly-meals
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "dayOfWeek": "Monday",
+  "mealDescription": "Breakfast: Granola, Lunch: Salad, Dinner: Sweet Potato Tacos"
+}
+
+### Update a meal
+PATCH {{host}}/api/food/weekly-meals/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+ {
+  "userId": 3,
+  "dayOfWeek": "Tuesday",
+  "mealDescription": "Breakfast: Oatmeal, Lunch: Salad, Dinner: Sweet Potato Tacos"
+}
+
+### Delete a meal
+DELETE {{host}}/api/food/weekly-meals/5
+Authorization: Bearer {{token}}
+
+### Get all budget entries
+GET {{host}}/api/personalFinances/budget
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a budget entry
+POST {{host}}/api/personalFinances/budget
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 5,
+  "category": "Groceries",
+  "amount": 250.75,
+  "isExpense": true
+}
+
+### Update a budget entry
+PATCH {{host}}/api/personalFinances/budget/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "category": "Groceries-Snacks",
+  "amount": 20.75,
+  "isExpense": true
+}
+
+### Delete a budget entry
+DELETE {{host}}/api/personalFinances/budget/5
+Authorization: Bearer {{token}}
+
+### Get all spending entries
+GET {{host}}/api/personalFinances/personal-spending
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a spending entry
+POST {{host}}/api/personalFinances/personal-spending
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "description": "Vacation",
+  "amount": 400
+}
+
+### Update a spending entry
+PATCH {{host}}/api/personalFinances/personal-spending/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "description": "Family Visit",
+  "amount": 200
+}
+
+### Delete a spending entry
+DELETE {{host}}/api/personalFinances/personal-spending/6
+Authorization: Bearer {{token}}
+
+### Get all medical data
+GET {{host}}/api/medical/medical
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a medical entry
+POST {{host}}/api/medical/medical
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "medicalCondition": "Asthma",
+  "prescription": "Azelaic acid",
+  "doctorName": "Dr.Matthews"
+}
+
+### Update a medical entry
+PATCH {{host}}/api/medical/medical/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "medicalCondition": "Rosacea",
+  "prescription": "Eucerin lotion",
+  "doctorName": "Dr.Matthews"
+}
+
+### Delete a medical entry
+DELETE {{host}}/api/medical/medical/5
+Authorization: Bearer {{token}}
+
+### Get all habit tracker data
+GET {{host}}/api/habits/habit
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a habit tracker entry
+POST {{host}}/api/habits/habit
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "habitName": "Skincare",
+  "frequency": "daily",
+  "goal": 2,
+  "progress": 3
+}
+
+### Update a habit tracker entry
+PATCH {{host}}/api/habits/habit/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "habitName": "Haircare",
+  "frequency": "daily",
+  "goal": 1,
+  "progress": 3
+}
+
+### Delete a habit tracker entry
+DELETE {{host}}/api/habits/habit/5
 Authorization: Bearer {{token}}

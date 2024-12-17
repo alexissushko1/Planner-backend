@@ -4,7 +4,7 @@ const router = express.Router();
 
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
-const prisma = require("../prisma");
+const prisma = require("../../prisma");
 
 /**
  * creates a token with the given id for the user to login
