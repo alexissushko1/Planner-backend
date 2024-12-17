@@ -23,6 +23,7 @@ app.use("/api/plans", require("./api/classroomApi/plans"));
 app.use("/api/seating", require("./api/classroomApi/seating"));
 app.use("/api/jobs", require("./api/classroomApi/jobs"));
 app.use("/api/schoolPasswords", require("./api/classroomApi/schoolPasswords"));
+app.use("/api/rewards", require("./api/classroomApi/rewards"));
 
 // Logging middleware
 app.use((req, res, next) => {

@@ -697,3 +697,36 @@ Content-Type: application/json
 ### Delete a school password
 DELETE {{host}}/api/schoolpasswords/school-password/3
 Authorization: Bearer {{token}}
+
+### Get all rewards
+GET {{host}}/api/rewards/reward
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a reward
+POST {{host}}/api/rewards/reward
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "rewardName": "Sticker",
+  "description": "Was kind to a classmate.",
+  "pointsRequired": 2
+}
+
+### Update a reward
+PATCH {{host}}/api/rewards/reward/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "rewardName": "Flower Sticker",
+  "description": "Was kind to a classmate.",
+  "pointsRequired": 2
+}
+
+### Delete a reward
+DELETE {{host}}/api/rewards/reward/3
+Authorization: Bearer {{token}}
