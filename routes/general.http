@@ -631,3 +631,69 @@ Content-Type: application/json
 ### Delete a seating chart
 DELETE {{host}}/api/seating/seating/7
 Authorization: Bearer {{token}}
+
+### Get all class jobs
+GET {{host}}/api/jobs/job
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new class job
+POST {{host}}/api/jobs/job
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "jobName": "Line Leader",
+  "description": "Student E"
+}
+
+### Update a class job
+PATCH {{host}}/api/jobs/job/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "jobName": "Line Leader",
+  "description": "Student G"
+}
+
+### Delete a class job
+DELETE {{host}}/api/jobs/job/3
+Authorization: Bearer {{token}}
+
+### Get all school passwords
+GET {{host}}/api/schoolpasswords/school-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new school password
+POST {{host}}/api/schoolpasswords/school-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountName": "Canvas",
+  "username": "teacher@email.com",
+  "password": "password",
+  "isTeacher": true
+}
+
+### Update a school password
+PATCH {{host}}/api/schoolpasswords/school-password/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountName": "Canvas",
+  "username": "student@email.com",
+  "password": "password",
+  "isTeacher": false
+}
+
+### Delete a school password
+DELETE {{host}}/api/schoolpasswords/school-password/3
+Authorization: Bearer {{token}}
