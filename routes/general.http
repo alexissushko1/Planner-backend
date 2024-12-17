@@ -794,3 +794,34 @@ Content-Type: application/json
 ### Delete a grade
 DELETE {{host}}/api/grades/grade/3
 Authorization: Bearer {{token}}
+
+### Get all student transportation details
+GET {{host}}/api/transportation/transportation
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a transportation details
+POST {{host}}/api/transportation/transportation
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "transportationDetails": "Pick up early."
+  }
+
+### Update a transportation detail
+PATCH {{host}}/api/transportation/transportation/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "transportationDetails": "Pick up early."
+  }
+
+### Delete a transportation detail
+DELETE {{host}}/api/transportation/transportation/3
+Authorization: Bearer {{token}}
