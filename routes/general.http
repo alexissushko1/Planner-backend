@@ -730,3 +730,34 @@ Content-Type: application/json
 ### Delete a reward
 DELETE {{host}}/api/rewards/reward/3
 Authorization: Bearer {{token}}
+
+### Get all iep data
+GET {{host}}/api/iep/iep
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post data
+POST {{host}}/api/iep/iep
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "iepDetails": "Student A is a 9 year old student in the 3rd grade with a diagnosis of ADHD and specific learning disabilities in reading and written expression. Her Individualized Education Program (IEP) focuses on providing accommodations and specialized instruction to help her succeed in the general education curriculum. In terms of academic goals, Sarah will receive 30 minutes of daily, small-group instruction in reading to improve fluency and comprehension, with a target of increasing her reading level by one grade year within the next year. In written expression, she will work with a special education teacher for 45 minutes per week to develop her ability to organize and clearly express her ideas in writing, with an aim to increase her writing output from two sentences to a coherent paragraph by the end of the school year. Accommodations include extended time for tests and assignments, the use of a text-to-speech program for reading assignments, and a scribe to assist with writing when needed. To support her focus and attention, Sarah will be allowed frequent breaks during lessons and will use fidget tools during independent work times. Social-emotional goals focus on improving self-regulation and coping skills, with weekly sessions with the school counselor to practice mindfulness and strategies for managing frustration. Regular communication between the special education team and Sarah’s parents will ensure that progress is monitored and adjustments are made as necessary to support her academic and emotional development."
+}
+
+### Update data
+PATCH {{host}}/api/iep/iep/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 6,
+  "iepDetails": "Student B is a 9 year old student in the 3rd grade with a diagnosis of ADHD and specific learning disabilities in reading and written expression. Her Individualized Education Program (IEP) focuses on providing accommodations and specialized instruction to help her succeed in the general education curriculum. In terms of academic goals, Sarah will receive 30 minutes of daily, small-group instruction in reading to improve fluency and comprehension, with a target of increasing her reading level by one grade year within the next year. In written expression, she will work with a special education teacher for 45 minutes per week to develop her ability to organize and clearly express her ideas in writing, with an aim to increase her writing output from two sentences to a coherent paragraph by the end of the school year. Accommodations include extended time for tests and assignments, the use of a text-to-speech program for reading assignments, and a scribe to assist with writing when needed. To support her focus and attention, Sarah will be allowed frequent breaks during lessons and will use fidget tools during independent work times. Social-emotional goals focus on improving self-regulation and coping skills, with weekly sessions with the school counselor to practice mindfulness and strategies for managing frustration. Regular communication between the special education team and Sarah’s parents will ensure that progress is monitored and adjustments are made as necessary to support her academic and emotional development."
+}
+
+### Delete data
+DELETE {{host}}/api/iep/iep/3
+Authorization: Bearer {{token}}
