@@ -602,3 +602,32 @@ Content-Type: application/json
 ### Delete daily lesson plan
 DELETE {{host}}/api/plans/daily-plan/11
 Authorization: Bearer {{token}}
+
+### Get all seating charts
+GET {{host}}/api/seating/seating
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new seating chart
+POST {{host}}/api/seating/seating
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "seatingArrangement": "Row 1: Tim, Sally, Joe. Row 2: Bob, Dwayne, Ellie. Row 3: Constance, _ , Kevin."
+}
+
+### Update a seating chart
+PATCH {{host}}/api/seating/seating/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "seatingArrangement": "Row 1: Jim, Sally, Joe. Row 2: Bob, Dwayne, Ellie. Row 3: Constance, _ , Kevin."
+}
+
+### Delete a seating chart
+DELETE {{host}}/api/seating/seating/7
+Authorization: Bearer {{token}}
