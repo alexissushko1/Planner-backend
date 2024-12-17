@@ -468,3 +468,69 @@ Content-Type: application/json
 ### Delete a habit tracker entry
 DELETE {{host}}/api/habits/habit/5
 Authorization: Bearer {{token}}
+
+### Get all cleaning data
+GET {{host}}/api/habits/cleaning
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a cleaning entry
+POST {{host}}/api/habits/cleaning
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "taskName": "Vacuum",
+  "frequency": "daily",
+  "isCompleted": false
+}
+
+### Update a cleaning entry
+PATCH {{host}}/api/habits/cleaning/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "taskName": "Dust",
+  "frequency": "daily",
+  "isCompleted": false
+}
+
+### Delete a cleaning entry
+DELETE {{host}}/api/habits/cleaning/5
+Authorization: Bearer {{token}}
+
+### Get all sub plans
+GET {{host}}/api/plans/sub-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new subplan
+POST {{host}}/api/plans/sub-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "subject": "3rd Grade Math",
+  "planDescription": "For 3rd-grade math lesson, students will begin with a 10-minute warm-up on multi-digit addition and subtraction (e.g., 23 + 56, 78 - 34). Following the warm-up, the class will review multi-digit addition and subtraction with regrouping, solving problems like 74 + 56 and 92 - 47 together. Next, they’ll explore basic geometry by identifying and drawing shapes such as triangles, rectangles, and circles, while noting properties like the number of sides and angles. Then, students will be introduced to multiplication as repeated addition (e.g., 3 × 4 as 4 + 4 + 4) and practice a few problems (e.g., 2 × 5, 4 × 3). If time allows, students will play a math game like Math Bingo or “Roll and Add” to reinforce their skills in a fun way. At the end of the lesson, students will share one thing they learned, and the teacher will collect their math notebooks and handouts. Behavior expectations include raising hands for questions and staying on task during independent work. If needed, the teacher can provide additional support for students struggling with concepts. Optional homework includes a worksheet with mixed addition, subtraction, and multiplication problems.",
+  "date": "2024-12-05T17:00:00Z"
+}
+
+### Update a subplan
+PATCH {{host}}/api/plans/sub-plan/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "subject": "4th Grade Math",
+  "planDescription": "For 4th-grade math lesson, students will begin with a 10-minute warm-up on multi-digit addition and subtraction (e.g., 23 + 56, 78 - 34). Following the warm-up, the class will review multi-digit addition and subtraction with regrouping, solving problems like 74 + 56 and 92 - 47 together. Next, they’ll explore basic geometry by identifying and drawing shapes such as triangles, rectangles, and circles, while noting properties like the number of sides and angles. Then, students will be introduced to multiplication as repeated addition (e.g., 3 × 4 as 4 + 4 + 4) and practice a few problems (e.g., 2 × 5, 4 × 3). If time allows, students will play a math game like Math Bingo or “Roll and Add” to reinforce their skills in a fun way. At the end of the lesson, students will share one thing they learned, and the teacher will collect their math notebooks and handouts. Behavior expectations include raising hands for questions and staying on task during independent work. If needed, the teacher can provide additional support for students struggling with concepts. Optional homework includes a worksheet with mixed addition, subtraction, and multiplication problems.",
+  "date": "2024-12-05T17:00:00Z"
+}
+
+### Delete a subplan
+DELETE {{host}}/api/plans/sub-plan/3
+Authorization: Bearer {{token}}
