@@ -534,3 +534,71 @@ Content-Type: application/json
 ### Delete a subplan
 DELETE {{host}}/api/plans/sub-plan/3
 Authorization: Bearer {{token}}
+
+### Get all weekly lesson plans
+GET {{host}}/api/plans/weekly-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post weekly lesson plan
+POST {{host}}/api/plans/weekly-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will introduce students to foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "weekStartDate": "2025-10-05T17:00:00Z",
+  "weekEndDate": "2025-10-09T17:00:00Z"
+  }
+
+### Update weekly lesson plan
+PATCH {{host}}/api/plans/weekly-plan/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will have students review foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "weekStartDate": "2025-10-06T17:00:00Z",
+  "weekEndDate": "2025-10-09T17:00:00Z"
+  }
+
+### Delete weekly lesson plan
+DELETE {{host}}/api/plans/weekly-plan/2
+Authorization: Bearer {{token}}
+
+### Get all daily lesson plans
+GET {{host}}/api/plans/daily-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post daily lesson plan
+POST {{host}}/api/plans/daily-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will introduce students to foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "date": "2025-10-05T17:00:00Z"
+  }
+
+### Update daily lesson plan
+PATCH {{host}}/api/plans/daily-plan/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will introduce students to foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "date": "2025-10-05T17:00:00Z"
+  }
+
+### Delete daily lesson plan
+DELETE {{host}}/api/plans/daily-plan/11
+Authorization: Bearer {{token}}
