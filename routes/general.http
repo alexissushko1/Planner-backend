@@ -761,3 +761,36 @@ Content-Type: application/json
 ### Delete data
 DELETE {{host}}/api/iep/iep/3
 Authorization: Bearer {{token}}
+
+### Get all grading data
+GET {{host}}/api/grades/grade
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a grade
+POST {{host}}/api/grades/grade
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "subject": "Beginner Chorus",
+  "grade": 98
+  }
+
+### Update a grade
+PATCH {{host}}/api/grades/grade/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "subject": "Beginner Chorus",
+  "grade": 95
+  }
+
+### Delete a grade
+DELETE {{host}}/api/grades/grade/3
+Authorization: Bearer {{token}}
