@@ -19,6 +19,14 @@ app.use("/api/food", require("./api/personalApi/food"));
 app.use("/api/personalFinances", require("./api/personalApi/personalFinances"));
 app.use("/api/medical", require("./api/personalApi/medical"));
 app.use("/api/habits", require("./api/personalApi/habits"));
+app.use("/api/plans", require("./api/classroomApi/plans"));
+app.use("/api/seating", require("./api/classroomApi/seating"));
+app.use("/api/jobs", require("./api/classroomApi/jobs"));
+app.use("/api/schoolPasswords", require("./api/classroomApi/schoolPasswords"));
+app.use("/api/rewards", require("./api/classroomApi/rewards"));
+app.use("/api/iep", require("./api/classroomApi/iep"));
+app.use("/api/grades", require("./api/classroomApi/grades"));
+app.use("/api/transportation", require("./api/classroomApi/transportation"));
 
 // Logging middleware
 app.use((req, res, next) => {

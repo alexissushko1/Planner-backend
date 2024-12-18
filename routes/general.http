@@ -468,3 +468,360 @@ Content-Type: application/json
 ### Delete a habit tracker entry
 DELETE {{host}}/api/habits/habit/5
 Authorization: Bearer {{token}}
+
+### Get all cleaning data
+GET {{host}}/api/habits/cleaning
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a cleaning entry
+POST {{host}}/api/habits/cleaning
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "taskName": "Vacuum",
+  "frequency": "daily",
+  "isCompleted": false
+}
+
+### Update a cleaning entry
+PATCH {{host}}/api/habits/cleaning/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 3,
+  "taskName": "Dust",
+  "frequency": "daily",
+  "isCompleted": false
+}
+
+### Delete a cleaning entry
+DELETE {{host}}/api/habits/cleaning/5
+Authorization: Bearer {{token}}
+
+### Get all sub plans
+GET {{host}}/api/plans/sub-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new subplan
+POST {{host}}/api/plans/sub-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "subject": "3rd Grade Math",
+  "planDescription": "For 3rd-grade math lesson, students will begin with a 10-minute warm-up on multi-digit addition and subtraction (e.g., 23 + 56, 78 - 34). Following the warm-up, the class will review multi-digit addition and subtraction with regrouping, solving problems like 74 + 56 and 92 - 47 together. Next, they’ll explore basic geometry by identifying and drawing shapes such as triangles, rectangles, and circles, while noting properties like the number of sides and angles. Then, students will be introduced to multiplication as repeated addition (e.g., 3 × 4 as 4 + 4 + 4) and practice a few problems (e.g., 2 × 5, 4 × 3). If time allows, students will play a math game like Math Bingo or “Roll and Add” to reinforce their skills in a fun way. At the end of the lesson, students will share one thing they learned, and the teacher will collect their math notebooks and handouts. Behavior expectations include raising hands for questions and staying on task during independent work. If needed, the teacher can provide additional support for students struggling with concepts. Optional homework includes a worksheet with mixed addition, subtraction, and multiplication problems.",
+  "date": "2024-12-05T17:00:00Z"
+}
+
+### Update a subplan
+PATCH {{host}}/api/plans/sub-plan/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "subject": "4th Grade Math",
+  "planDescription": "For 4th-grade math lesson, students will begin with a 10-minute warm-up on multi-digit addition and subtraction (e.g., 23 + 56, 78 - 34). Following the warm-up, the class will review multi-digit addition and subtraction with regrouping, solving problems like 74 + 56 and 92 - 47 together. Next, they’ll explore basic geometry by identifying and drawing shapes such as triangles, rectangles, and circles, while noting properties like the number of sides and angles. Then, students will be introduced to multiplication as repeated addition (e.g., 3 × 4 as 4 + 4 + 4) and practice a few problems (e.g., 2 × 5, 4 × 3). If time allows, students will play a math game like Math Bingo or “Roll and Add” to reinforce their skills in a fun way. At the end of the lesson, students will share one thing they learned, and the teacher will collect their math notebooks and handouts. Behavior expectations include raising hands for questions and staying on task during independent work. If needed, the teacher can provide additional support for students struggling with concepts. Optional homework includes a worksheet with mixed addition, subtraction, and multiplication problems.",
+  "date": "2024-12-05T17:00:00Z"
+}
+
+### Delete a subplan
+DELETE {{host}}/api/plans/sub-plan/3
+Authorization: Bearer {{token}}
+
+### Get all weekly lesson plans
+GET {{host}}/api/plans/weekly-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post weekly lesson plan
+POST {{host}}/api/plans/weekly-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will introduce students to foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "weekStartDate": "2025-10-05T17:00:00Z",
+  "weekEndDate": "2025-10-09T17:00:00Z"
+  }
+
+### Update weekly lesson plan
+PATCH {{host}}/api/plans/weekly-plan/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will have students review foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "weekStartDate": "2025-10-06T17:00:00Z",
+  "weekEndDate": "2025-10-09T17:00:00Z"
+  }
+
+### Delete weekly lesson plan
+DELETE {{host}}/api/plans/weekly-plan/2
+Authorization: Bearer {{token}}
+
+### Get all daily lesson plans
+GET {{host}}/api/plans/daily-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post daily lesson plan
+POST {{host}}/api/plans/daily-plan
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will introduce students to foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "date": "2025-10-05T17:00:00Z"
+  }
+
+### Update daily lesson plan
+PATCH {{host}}/api/plans/daily-plan/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "subject": "Algebra",
+  "lessonDescription":"This Algebra lesson plan will introduce students to foundational algebraic concepts through a series of structured activities and practice. On Day 1, the focus will be on introducing the new topic of solving linear equations. The teacher will begin by reviewing basic arithmetic operations and properties, then demonstrate step-by-step how to solve one-variable linear equations. After the demonstration, students will engage in guided practice, where they will solve a few problems as a class. Homework will be assigned to reinforce the day's lesson, providing students with problems that gradually increase in difficulty. On Day 2, the lesson will build upon the previous day’s work by exploring multi-step linear equations. The teacher will review the homework, address common mistakes, and then present more complex examples, allowing students to work through problems individually and in pairs. During independent practice, the teacher will circulate the room to provide support as needed. Homework for the night will consist of problems that challenge students to apply multi-step solving techniques. On Day 3, the lesson will shift to applying linear equations to real-world problems, such as budgeting or distance-time scenarios. After reviewing a few examples, students will work in groups to solve similar word problems, learning how to translate everyday situations into algebraic expressions. On Day 4, the class will focus on reinforcing all of the concepts learned throughout the week. This will include a review session with practice problems, a class discussion on any lingering questions, and a brief formative quiz to assess understanding. The week will conclude with Day 5, which will include time for individual or small group work on any difficult concepts, targeted interventions, and an opportunity for students to ask questions and clarify any misunderstandings before the next topic is introduced. Homework over the weekend will be assigned to further reinforce the week's content, ensuring that students have ample practice before moving forward.",
+  "date": "2025-10-05T17:00:00Z"
+  }
+
+### Delete daily lesson plan
+DELETE {{host}}/api/plans/daily-plan/11
+Authorization: Bearer {{token}}
+
+### Get all seating charts
+GET {{host}}/api/seating/seating
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new seating chart
+POST {{host}}/api/seating/seating
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "seatingArrangement": "Row 1: Tim, Sally, Joe. Row 2: Bob, Dwayne, Ellie. Row 3: Constance, _ , Kevin."
+}
+
+### Update a seating chart
+PATCH {{host}}/api/seating/seating/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "seatingArrangement": "Row 1: Jim, Sally, Joe. Row 2: Bob, Dwayne, Ellie. Row 3: Constance, _ , Kevin."
+}
+
+### Delete a seating chart
+DELETE {{host}}/api/seating/seating/7
+Authorization: Bearer {{token}}
+
+### Get all class jobs
+GET {{host}}/api/jobs/job
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new class job
+POST {{host}}/api/jobs/job
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "jobName": "Line Leader",
+  "description": "Student E"
+}
+
+### Update a class job
+PATCH {{host}}/api/jobs/job/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "jobName": "Line Leader",
+  "description": "Student G"
+}
+
+### Delete a class job
+DELETE {{host}}/api/jobs/job/3
+Authorization: Bearer {{token}}
+
+### Get all school passwords
+GET {{host}}/api/schoolpasswords/school-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a new school password
+POST {{host}}/api/schoolpasswords/school-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountName": "Canvas",
+  "username": "teacher@email.com",
+  "password": "password",
+  "isTeacher": true
+}
+
+### Update a school password
+PATCH {{host}}/api/schoolpasswords/school-password/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountName": "Canvas",
+  "username": "student@email.com",
+  "password": "password",
+  "isTeacher": false
+}
+
+### Delete a school password
+DELETE {{host}}/api/schoolpasswords/school-password/3
+Authorization: Bearer {{token}}
+
+### Get all rewards
+GET {{host}}/api/rewards/reward
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a reward
+POST {{host}}/api/rewards/reward
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "rewardName": "Sticker",
+  "description": "Was kind to a classmate.",
+  "pointsRequired": 2
+}
+
+### Update a reward
+PATCH {{host}}/api/rewards/reward/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "rewardName": "Flower Sticker",
+  "description": "Was kind to a classmate.",
+  "pointsRequired": 2
+}
+
+### Delete a reward
+DELETE {{host}}/api/rewards/reward/3
+Authorization: Bearer {{token}}
+
+### Get all iep data
+GET {{host}}/api/iep/iep
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post data
+POST {{host}}/api/iep/iep
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "iepDetails": "Student A is a 9 year old student in the 3rd grade with a diagnosis of ADHD and specific learning disabilities in reading and written expression. Her Individualized Education Program (IEP) focuses on providing accommodations and specialized instruction to help her succeed in the general education curriculum. In terms of academic goals, Sarah will receive 30 minutes of daily, small-group instruction in reading to improve fluency and comprehension, with a target of increasing her reading level by one grade year within the next year. In written expression, she will work with a special education teacher for 45 minutes per week to develop her ability to organize and clearly express her ideas in writing, with an aim to increase her writing output from two sentences to a coherent paragraph by the end of the school year. Accommodations include extended time for tests and assignments, the use of a text-to-speech program for reading assignments, and a scribe to assist with writing when needed. To support her focus and attention, Sarah will be allowed frequent breaks during lessons and will use fidget tools during independent work times. Social-emotional goals focus on improving self-regulation and coping skills, with weekly sessions with the school counselor to practice mindfulness and strategies for managing frustration. Regular communication between the special education team and Sarah’s parents will ensure that progress is monitored and adjustments are made as necessary to support her academic and emotional development."
+}
+
+### Update data
+PATCH {{host}}/api/iep/iep/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 6,
+  "iepDetails": "Student B is a 9 year old student in the 3rd grade with a diagnosis of ADHD and specific learning disabilities in reading and written expression. Her Individualized Education Program (IEP) focuses on providing accommodations and specialized instruction to help her succeed in the general education curriculum. In terms of academic goals, Sarah will receive 30 minutes of daily, small-group instruction in reading to improve fluency and comprehension, with a target of increasing her reading level by one grade year within the next year. In written expression, she will work with a special education teacher for 45 minutes per week to develop her ability to organize and clearly express her ideas in writing, with an aim to increase her writing output from two sentences to a coherent paragraph by the end of the school year. Accommodations include extended time for tests and assignments, the use of a text-to-speech program for reading assignments, and a scribe to assist with writing when needed. To support her focus and attention, Sarah will be allowed frequent breaks during lessons and will use fidget tools during independent work times. Social-emotional goals focus on improving self-regulation and coping skills, with weekly sessions with the school counselor to practice mindfulness and strategies for managing frustration. Regular communication between the special education team and Sarah’s parents will ensure that progress is monitored and adjustments are made as necessary to support her academic and emotional development."
+}
+
+### Delete data
+DELETE {{host}}/api/iep/iep/3
+Authorization: Bearer {{token}}
+
+### Get all grading data
+GET {{host}}/api/grades/grade
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a grade
+POST {{host}}/api/grades/grade
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "subject": "Beginner Chorus",
+  "grade": 98
+  }
+
+### Update a grade
+PATCH {{host}}/api/grades/grade/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "subject": "Beginner Chorus",
+  "grade": 95
+  }
+
+### Delete a grade
+DELETE {{host}}/api/grades/grade/3
+Authorization: Bearer {{token}}
+
+### Get all student transportation details
+GET {{host}}/api/transportation/transportation
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post a transportation details
+POST {{host}}/api/transportation/transportation
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "transportationDetails": "Pick up early."
+  }
+
+### Update a transportation detail
+PATCH {{host}}/api/transportation/transportation/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentId": 5,
+  "transportationDetails": "Pick up early."
+  }
+
+### Delete a transportation detail
+DELETE {{host}}/api/transportation/transportation/3
+Authorization: Bearer {{token}}
