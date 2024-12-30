@@ -55,7 +55,7 @@ router.post("/transportation", authenticate, async (req, res, next) => {
  * @description Updates transportation info by ID
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
- * @params {id} - The ID of the job to update.
+ * @params {id} - The ID of the transportation to update.
  * @body {userId, studentId, transportationDetails} - Fields to update.
  * @returns {Object} - The updated transportation object.
  */

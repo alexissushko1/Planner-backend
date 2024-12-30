@@ -1,8 +1,18 @@
+//Import for routing and database interaction
 const express = require("express");
 const router = express.Router();
 
+//Import authentication middleware and Prisma client for database access
 const { authenticate } = require("../generalApi/auth");
 const prisma = require("../../prisma");
+
+/**
+ * @route GET /budget
+ * @description Retrieves all budget info from the database
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @returns {Object[]} - An array of budget objects.
+ */
 
 //Get all budget entries
 router.get("/budget", authenticate, async (req, res, next) => {
@@ -13,6 +23,15 @@ router.get("/budget", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+
+/**
+ * @route POST /budget
+ * @description Adds new budget info to the database
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @body {userId, category, amount, isExpense} - The budget info to be added.
+ * @returns {Object} - The newly created budget object.
+ */
 
 //Add a budget entry
 router.post("/budget", authenticate, async (req, res, next) => {
@@ -32,6 +51,16 @@ router.post("/budget", authenticate, async (req, res, next) => {
   }
 });
 
+/**
+ * @route PATCH /budget/:id
+ * @description Updates budget info by ID
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @params {id} - The ID of the budget info to update.
+ * @body {userId, category, amount, isExpense} - Fields to update.
+ * @returns {Object} - The updated budget object.
+ */
+
 //Update a budget entry
 router.patch("/budget/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
@@ -48,12 +77,14 @@ router.patch("/budget/:id", authenticate, async (req, res, next) => {
       });
     }
 
+    // Prepare the update object with the modified fields
     const updateData = {};
     if (userId) updateData.userId = +userId;
     if (category) updateData.category = category;
     if (amount) updateData.amount = amount;
     if (isExpense) updateData.isExpense = isExpense;
 
+    // Apply the updates to the budget info in the database
     const updatedBudget = await prisma.monthlyBudget.update({
       where: { id: +id },
       data: updateData,
@@ -63,6 +94,15 @@ router.patch("/budget/:id", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+
+/**
+ * @route DELETE /budget/:id
+ * @description Deletes budget info by ID
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @params {id} - The ID of the budget info to delete.
+ * @returns {null} - No content on successful deletion.
+ */
 
 //Delete a budget entry
 router.delete("/budget/:id", authenticate, async (req, res, next) => {
@@ -78,6 +118,14 @@ router.delete("/budget/:id", authenticate, async (req, res, next) => {
   }
 });
 
+/**
+ * @route GET /personal-spending
+ * @description Retrieves all spending info from the database
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @returns {Object[]} - An array of spending objects.
+ */
+
 //Get all spending entries
 router.get("/personal-spending", authenticate, async (req, res, next) => {
   try {
@@ -87,6 +135,15 @@ router.get("/personal-spending", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+
+/**
+ * @route POST /personal-spending
+ * @description Adds new spending info to the database
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @body {userId, description, amount} - The spending info to be added.
+ * @returns {Object} - The newly created spending object.
+ */
 
 //Add a spending entry
 router.post("/personal-spending", authenticate, async (req, res, next) => {
@@ -105,6 +162,16 @@ router.post("/personal-spending", authenticate, async (req, res, next) => {
   }
 });
 
+/**
+ * @route PATCH /personal-spending/:id
+ * @description Updates spending info by ID
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @params {id} - The ID of the spending info to update.
+ * @body {userId, description, amount} - Fields to update.
+ * @returns {Object} - The updated spending object.
+ */
+
 //Update a spending entry
 router.patch("/personal-spending/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
@@ -121,11 +188,13 @@ router.patch("/personal-spending/:id", authenticate, async (req, res, next) => {
       });
     }
 
+    // Prepare the update object with the modified fields
     const updateData = {};
     if (userId) updateData.userId = +userId;
     if (description) updateData.description = description;
     if (amount) updateData.amount = amount;
 
+    // Apply the updates to the budget info in the database
     const updatedSpending = await prisma.spendTracker.update({
       where: { id: +id },
       data: updateData,
@@ -135,6 +204,14 @@ router.patch("/personal-spending/:id", authenticate, async (req, res, next) => {
     next(e);
   }
 });
+/**
+ * @route DELETE /personal-spending/:id
+ * @description Deletes spending info by ID
+ * @access Private (JWT authentication required)
+ * @security JWT - A valid JWT token must be provided in the Authorization header.
+ * @params {id} - The ID of the spending info to delete.
+ * @returns {null} - No content on successful deletion.
+ */
 
 //Delete a spending entry
 router.delete(
@@ -154,4 +231,5 @@ router.delete(
   }
 );
 
+// Exports the router for use in other parts of the application
 module.exports = router;
