@@ -2,8 +2,14 @@ require("dotenv").config(); // Load environment variables from .env file
 
 // Import required dependencies
 const express = require("express");
+const http = require("http");
+const socketIo = require("socket.io");
+
 const app = express();
-const PORT = 3000;
+const server = http.createServer(app); // Create a server with Express
+const io = socketIo(server); // Initialize Socket.io on the server
+
+const PORT = process.env.PORT || 3000; // Get the port from environment or default to 3000
 
 // Middleware for logging HTTP requests in 'dev' format
 app.use(require("morgan")("dev"));
@@ -58,7 +64,25 @@ app.use((err, req, res, next) => {
   res.json(err.message ?? "Sorry, something went wrong :(");
 });
 
-// Start the Express server on the specified port
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
+// Socket.io Connection and Event Handling
+io.on("connection", (socket) => {
+  console.log("A user connected");
+
+  // Example: Handle event sharing (like sharing events, to-dos, etc.)
+  socket.on("shareEvent", (eventData) => {
+    console.log("Event shared:", eventData);
+
+    // Broadcast to other users
+    socket.broadcast.emit("newEvent", eventData);
+  });
+
+  // Optionally, handle disconnection
+  socket.on("disconnect", () => {
+    console.log("A user disconnected");
+  });
+});
+
+// Start the server with Socket.io
+server.listen(PORT, () => {
+  console.log(`Server and Socket.io listening on port ${PORT}...`);
 });
