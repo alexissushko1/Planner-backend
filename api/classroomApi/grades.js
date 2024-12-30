@@ -29,7 +29,7 @@ router.get("/grade", authenticate, async (req, res, next) => {
  * @description Adds a new grade to the database
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
- * @body {userId: number, studentId: number, subject: string, grade: string} - The grade data to be added.
+ * @body {userId, studentId, subject, grade} - The grade data to be added.
  * @returns {Object} - The newly created grading object.
  */
 
@@ -57,7 +57,7 @@ router.post("/grade", authenticate, async (req, res, next) => {
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
  * @params {id} - The ID of the grade to update.
- * @body {userId: number, studentId: number, subject: string, grade: string} - Fields to update.
+ * @body {userId, studentId, subject, grade} - Fields to update.
  * @returns {Object} - The updated grading object.
  */
 
