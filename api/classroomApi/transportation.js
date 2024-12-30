@@ -4,7 +4,7 @@ const router = express.Router();
 const { authenticate } = require("../generalApi/auth");
 const prisma = require("../../prisma");
 
-//Get all transportation information
+//Get all class
 router.get("/transportation", authenticate, async (req, res, next) => {
   try {
     const transportationInfo = await prisma.studentTransportation.findMany();

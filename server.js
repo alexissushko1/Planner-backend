@@ -27,6 +27,7 @@ app.use("/api/rewards", require("./api/classroomApi/rewards"));
 app.use("/api/iep", require("./api/classroomApi/iep"));
 app.use("/api/grades", require("./api/classroomApi/grades"));
 app.use("/api/transportation", require("./api/classroomApi/transportation"));
+app.use("/api/rosters", require("./api/classroomApi/rosters"));
 
 // Logging middleware
 app.use((req, res, next) => {
