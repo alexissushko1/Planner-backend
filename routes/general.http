@@ -5,8 +5,8 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-  "username": "newuser",
-  "email": "user@email.com",
+  "username": "newuser7",
+  "email": "user7@email.com",
   "password": "password"
 }
 
@@ -16,8 +16,8 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "newuser",
-  "email": "user@email.com",
+  "username": "newuser7",
+  "email": "user7@email.com",
   "password": "changedPassword"
 }
 
@@ -33,8 +33,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "username": "newuser",
-  "email": "user@email.com",
+  "username": "newuser7",
+  "email": "user7@email.com",
   "password": "changedPassword"
 }
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 }
 
 ### Delete a sticker
-DELETE {{host}}/api/stickers/sticker/7
+DELETE {{host}}/api/stickers/sticker/596
 Authorization: Bearer {{token}}
 
 ### Get all stickers settings
@@ -109,7 +109,7 @@ Content-Type: application/json
 }
 
 ### Delete a sticker setting
-DELETE {{host}}/api/stickers/sticker-settings/3
+DELETE {{host}}/api/stickers/sticker-settings/15
 Authorization: Bearer {{token}}
 
 ### Get all events on calendar
@@ -142,7 +142,7 @@ Content-Type: application/json
 }
 
 ### Delete a event
-DELETE {{host}}/api/events/event/4
+DELETE {{host}}/api/events/event/6
 Authorization: Bearer {{token}}
 
 ### Get all to do lists
@@ -173,7 +173,7 @@ Content-Type: application/json
 }
 
 ### Delete a to do
-DELETE {{host}}/api/lists/todo/6
+DELETE {{host}}/api/lists/todo/11
 Authorization: Bearer {{token}}
 
 ### Get all shopping lists
@@ -208,7 +208,7 @@ Content-Type: application/json
 }
 
 ### Delete a shopping list
-DELETE {{host}}/api/lists/shopping/6
+DELETE {{host}}/api/lists/shopping/17
 Authorization: Bearer {{token}}
 
 ### Get all journals
@@ -237,7 +237,7 @@ Content-Type: application/json
 }
 
 ### Delete a journal entry
-DELETE {{host}}/api/journals/journal/2
+DELETE {{host}}/api/journals/journal/12
 Authorization: Bearer {{token}}
 
 ### Get all personal passwords
@@ -270,7 +270,7 @@ Content-Type: application/json
 }
 
 ### Delete a personal password
-DELETE {{host}}/api/personalPasswords/password/5
+DELETE {{host}}/api/personalPasswords/password/8
 Authorization: Bearer {{token}}
 
 ### Get all grocery lists
@@ -303,7 +303,7 @@ Content-Type: application/json
 }
 
 ### Delete a grocery list
-DELETE {{host}}/api/food/grocery/5
+DELETE {{host}}/api/food/grocery/7
 Authorization: Bearer {{token}}
 
 ### Get all meals for week
@@ -334,7 +334,7 @@ Content-Type: application/json
 }
 
 ### Delete a meal
-DELETE {{host}}/api/food/weekly-meals/5
+DELETE {{host}}/api/food/weekly-meals/16
 Authorization: Bearer {{token}}
 
 ### Get all budget entries
@@ -367,7 +367,7 @@ Content-Type: application/json
 }
 
 ### Delete a budget entry
-DELETE {{host}}/api/personalFinances/budget/5
+DELETE {{host}}/api/personalFinances/budget/6
 Authorization: Bearer {{token}}
 
 ### Get all spending entries
@@ -398,7 +398,7 @@ Content-Type: application/json
 }
 
 ### Delete a spending entry
-DELETE {{host}}/api/personalFinances/personal-spending/6
+DELETE {{host}}/api/personalFinances/personal-spending/7
 Authorization: Bearer {{token}}
 
 ### Get all medical data
@@ -431,7 +431,7 @@ Content-Type: application/json
 }
 
 ### Delete a medical entry
-DELETE {{host}}/api/medical/medical/5
+DELETE {{host}}/api/medical/medical/6
 Authorization: Bearer {{token}}
 
 ### Get all habit tracker data
@@ -466,7 +466,7 @@ Content-Type: application/json
 }
 
 ### Delete a habit tracker entry
-DELETE {{host}}/api/habits/habit/5
+DELETE {{host}}/api/habits/habit/6
 Authorization: Bearer {{token}}
 
 ### Get all cleaning data
@@ -499,7 +499,7 @@ Content-Type: application/json
 }
 
 ### Delete a cleaning entry
-DELETE {{host}}/api/habits/cleaning/5
+DELETE {{host}}/api/habits/cleaning/10
 Authorization: Bearer {{token}}
 
 ### Get all sub plans
@@ -532,7 +532,7 @@ Content-Type: application/json
 }
 
 ### Delete a subplan
-DELETE {{host}}/api/plans/sub-plan/3
+DELETE {{host}}/api/plans/sub-plan/4
 Authorization: Bearer {{token}}
 
 ### Get all weekly lesson plans
@@ -567,7 +567,7 @@ Content-Type: application/json
   }
 
 ### Delete weekly lesson plan
-DELETE {{host}}/api/plans/weekly-plan/2
+DELETE {{host}}/api/plans/weekly-plan/5
 Authorization: Bearer {{token}}
 
 ### Get all daily lesson plans
@@ -600,7 +600,7 @@ Content-Type: application/json
   }
 
 ### Delete daily lesson plan
-DELETE {{host}}/api/plans/daily-plan/11
+DELETE {{host}}/api/plans/daily-plan/12
 Authorization: Bearer {{token}}
 
 ### Get all seating charts
@@ -629,7 +629,7 @@ Content-Type: application/json
 }
 
 ### Delete a seating chart
-DELETE {{host}}/api/seating/seating/7
+DELETE {{host}}/api/seating/seating/8
 Authorization: Bearer {{token}}
 
 ### Get all class jobs
@@ -660,7 +660,7 @@ Content-Type: application/json
 }
 
 ### Delete a class job
-DELETE {{host}}/api/jobs/job/3
+DELETE {{host}}/api/jobs/job/5
 Authorization: Bearer {{token}}
 
 ### Get all school passwords
@@ -695,7 +695,7 @@ Content-Type: application/json
 }
 
 ### Delete a school password
-DELETE {{host}}/api/schoolpasswords/school-password/3
+DELETE {{host}}/api/schoolpasswords/school-password/5
 Authorization: Bearer {{token}}
 
 ### Get all rewards
@@ -728,7 +728,7 @@ Content-Type: application/json
 }
 
 ### Delete a reward
-DELETE {{host}}/api/rewards/reward/3
+DELETE {{host}}/api/rewards/reward/5
 Authorization: Bearer {{token}}
 
 ### Get all iep data
@@ -759,7 +759,7 @@ Content-Type: application/json
 }
 
 ### Delete data
-DELETE {{host}}/api/iep/iep/3
+DELETE {{host}}/api/iep/iep/6
 Authorization: Bearer {{token}}
 
 ### Get all grading data
@@ -792,7 +792,7 @@ Content-Type: application/json
   }
 
 ### Delete a grade
-DELETE {{host}}/api/grades/grade/3
+DELETE {{host}}/api/grades/grade/6
 Authorization: Bearer {{token}}
 
 ### Get all student transportation details
@@ -823,5 +823,38 @@ Content-Type: application/json
   }
 
 ### Delete a transportation detail
-DELETE {{host}}/api/transportation/transportation/3
+DELETE {{host}}/api/transportation/transportation/5
+Authorization: Bearer {{token}}
+
+### Get all class roster details
+GET {{host}}/api/rosters/roster
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Post class roster information
+POST {{host}}/api/rosters/roster
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentName": "Student A",
+  "gradeLevel": "11",
+  "birthday": "2025-12-05T17:00:00Z"
+  }
+
+### Update class roster information
+PATCH {{host}}/api/rosters/roster/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "studentName": "Student A",
+  "gradeLevel": "11",
+  "birthday": "2025-12-05T17:00:00Z"
+  }
+
+### Delete class roster information
+DELETE {{host}}/api/rosters/roster/5
 Authorization: Bearer {{token}}
