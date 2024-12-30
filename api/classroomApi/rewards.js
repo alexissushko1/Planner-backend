@@ -96,7 +96,7 @@ router.patch("/reward/:id", authenticate, async (req, res, next) => {
 });
 
 /**
- * @route DELETE /rewardn/:id
+ * @route DELETE /reward/:id
  * @description Deletes a reward by ID
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
