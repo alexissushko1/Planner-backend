@@ -4,6 +4,7 @@ require("dotenv").config(); // Load environment variables from .env file
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
+const cors = require("cors");
 
 const app = express();
 const server = http.createServer(app); // Create a server with Express
@@ -14,6 +15,14 @@ const PORT = process.env.PORT || 3000; // Get the port from environment or defau
 // Middleware for logging HTTP requests in 'dev' format
 app.use(require("morgan")("dev"));
 
+//Enable CORS for requests
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 // Middleware for parsing incoming JSON requests
 app.use(express.json());
 
