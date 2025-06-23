@@ -5,8 +5,8 @@ POST {{host}}/register
 Content-Type: application/json
 
 {
-  "username": "newuser7",
-  "email": "user7@email.com",
+  "username": "newuser8",
+  "email": "user8@email.com",
   "password": "password"
 }
 
@@ -16,9 +16,9 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "newuser7",
-  "email": "user7@email.com",
-  "password": "changedPassword"
+  "username": "newuser8",
+  "email": "user8@email.com",
+  "password": "password"
 }
 
 ### Get user information
@@ -136,7 +136,7 @@ Content-Type: application/json
 
 {
   "userId": 1,
-  "eventName": "3rd Grade Christmas Concert",
+  "eventName": "2nd Grade Christmas Concert",
   "eventDate" : "2024-12-06T17:00:00Z",
   "description": "Changed date of Christmas concert"
 }
@@ -251,26 +251,26 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId": 5,
+  "userId": 7,
   "accountName": "Example account",
   "username": "ExampleUsername",
   "password": "ExamplePassword"
 }
 
 ### Update a personal password
-PATCH {{host}}/api/personalPasswords/password/1
+PATCH {{host}}/api/personalPasswords/password/12
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "userId": 5,
+  "userId": 6,
   "accountName": "Example changed account",
   "username": "ExampleChangedUsername",
   "password": "ExampleChangedPassword"
 }
 
 ### Delete a personal password
-DELETE {{host}}/api/personalPasswords/password/8
+DELETE {{host}}/api/personalPasswords/password/12
 Authorization: Bearer {{token}}
 
 ### Get all grocery lists
