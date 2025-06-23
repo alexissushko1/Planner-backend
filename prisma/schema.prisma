@@ -1,0 +1,326 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Users Model - Represents the users of the application
+model User {
+  id           Int   @id @default (autoincrement())      // Primary key with auto-increment
+  username     String @unique             // Unique username
+  email        String @unique            // Unique email
+  password     String                      // Encrypted password
+  stickers     Sticker[]                   // A user has many stickers
+  stickerSettings StickerSetting[]         // A user has many sticker settings
+  passwords    PersonalPassword[]          // A user has many personal passwords
+  groceryList  GroceryList[]               // A user has many grocery items
+  meals        MealsForWeek[]              // A user has many meal plans
+  monthlyBudget MonthlyBudget[]            // A user has many budget items
+  spendTracker SpendTracker[]              // A user has many spend records
+  medical      PersonalMedical[]           // A user has many medical records
+  habits       HabitTracker[]              // A user has many habits
+  cleaning     CleaningChecklist[]         // A user has many cleaning tasks
+  subPlans     SubPlan[]                   // A user has many sub plans
+  seatingCharts SeatingChart[]             // A user has many seating charts
+  jobs         ClassroomJob[]              // A user has many classroom jobs
+  schoolPasswords SchoolPassword[]         // A user has many school passwords
+  rewards      ClassroomReward[]           // A user has many classroom rewards
+  ieps         IEP[]                       // A user has many IEPs
+  grades       Grading[]                   // A user has many grades
+  transportation StudentTransportation[]   // A user has many transportation records
+  classRoster  ClassRoster[]               // A user has many class roster entries
+  lessonPlans  WeeklyLessonPlan[]          // A user has many weekly lesson plans
+  dailyLessons DailyLessonPlan[]           // A user has many daily lesson plans
+  calendarEvents CalendarEvent[]           // A user has many calendar events
+  todos        ToDoList[]                  // A user has many to-do tasks
+  reflectionSurveys ReflectionSurvey[]     // A user has many reflection surveys
+  shoppingList  ShoppingList[]             // A user has many shopping list items
+  journals     Journal[]                   // A user has many journal entries
+}
+
+// Stickers Model - Stores user-specific stickers
+model Sticker {
+  id          Int    @id @default  (autoincrement())       // Primary key with auto-increment
+  userId      Int       
+  content     String                           // Content of the sticky note
+  positionX   Int                              // X position on the screen
+  positionY   Int                              // Y position on the screen
+  width       Int                              // Width of the sticker
+  height      Int                              // Height of the sticker
+  color       String                           // Sticker color (e.g., #ffcc00)
+  zIndex      Int                              // Z-index for layering stickers
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Sticker Settings Model - Stores user-specific default settings for stickers
+model StickerSetting {
+  id              Int   @id @default   (autoincrement())      // Primary key with auto-increment
+  userId          Int           // Foreign key referencing User model
+  defaultColor    String                           // Default color for new stickers
+  defaultSizeWidth Int                               // Default width for new stickers
+  defaultSizeHeight Int                             // Default height for new stickers
+  
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Calendar Table
+model CalendarEvent {
+  id Int @id @default (autoincrement())
+  userId Int 
+  eventName String
+  eventDate DateTime
+  description String
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// To-Do List Table
+model ToDoList {
+  id Int @id @default (autoincrement())
+  userId Int
+  taskName String
+  isCompleted Boolean
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Reflection Survey Table
+model ReflectionSurvey {
+  id Int @id @default (autoincrement())
+  userId Int
+  question String
+  answer String
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Shopping List Table
+model ShoppingList {
+  id Int @id @default (autoincrement())
+  userId Int
+  itemName String
+  quantity Int
+  store String
+  price Float
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Journal Entries Table
+model Journal {
+  id Int @id @default (autoincrement())
+  userId Int
+  entryText String
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Personal Passwords Table - Stores passwords for personal accounts
+model PersonalPassword {
+  id Int @id @default (autoincrement())
+  userId Int 
+  accountName String // Account name (e.g., "Bank", "Email")
+  username String // Username for the account
+  password String // Encrypted password
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Grocery List Table
+model GroceryList {
+  id Int @id @default (autoincrement())
+  userId Int 
+  itemName String
+  quantity Int
+  isPurchased Boolean // Whether the item has been purchased or not
+  
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Meals for the Week Table
+model MealsForWeek {
+  id Int @id @default (autoincrement())
+  userId Int 
+  dayOfWeek String // E.g., "Monday", "Tuesday"
+  mealDescription String // Description of the meal
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Monthly Budget Table
+model MonthlyBudget {
+  id Int @id @default (autoincrement())
+  userId Int
+  category String // E.g., "Groceries", "Rent", etc.
+  amount Float
+  isExpense Boolean // Whether this is an expense (true) or income (false)
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Spend Tracker Table
+model SpendTracker {
+  id Int @id @default (autoincrement())
+  userId Int 
+  description String // Description of the transaction
+  amount Float
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Medical Table
+model PersonalMedical {
+  id Int @id @default (autoincrement())
+  userId Int 
+  medicalCondition String // E.g., "Asthma", "Diabetes"
+  prescription String // Prescription details
+  doctorName String // Doctor’s name
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Habit Tracker Table
+model HabitTracker {
+  id Int @id @default (autoincrement())
+  userId Int 
+  habitName String // Name of the habit (e.g., "Exercise", "Read")
+  frequency String // E.g., "Daily", "Weekly"
+  goal Int // Number of times to do the habit
+  progress Int // Progress made
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Cleaning Checklist Table (Personal)
+model CleaningChecklist {
+  id Int @id @default (autoincrement())
+  userId Int
+  taskName String // Task description (e.g., "Vacuum", "Dusting")
+  isCompleted Boolean // Whether the task is completed
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+
+// Sub Plans Table (Classroom)
+model SubPlan {
+  id Int @id @default (autoincrement())
+  userId Int
+  subject String // E.g., "Math", "Science"
+  planDescription String // Description of the plan
+  date DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Classroom Seating Chart Table
+model SeatingChart {
+  id Int @id @default (autoincrement())
+  userId Int 
+  seatingArrangement String // Seating arrangement as a string or JSON
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Classroom Jobs Table
+model ClassroomJob {
+  id Int @id @default (autoincrement())
+  userId Int
+  jobName String // Name of the classroom job (e.g., "Line Leader")
+  description String // Job description
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// School Passwords (Teacher and Student)
+model SchoolPassword {
+  id Int @id @default (autoincrement())
+  userId Int
+  accountName String // Account name (e.g., "School Portal")
+  username String // Username for school account
+  password String // Encrypted password
+  isTeacher Boolean // Whether the account is a teacher or student
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Rewards Table (Classroom)
+model ClassroomReward {
+  id Int @id @default (autoincrement())
+  userId Int
+  rewardName String // Name of the reward
+  description String // Reward description
+  pointsRequired Int // Points needed to earn the reward
+  
+  user User @relation(fields: [userId], references: [id])
+}
+
+// IEP Table (Individualized Education Plans)
+model IEP {
+  id Int @id @default (autoincrement())
+  userId Int
+  studentId Int
+  iepDetails String // Details of the IEP
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Grading Table (Classroom)
+model Grading {
+  id Int @id @default (autoincrement())
+  userId Int
+  studentId Int
+  subject String
+  grade Int
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Student Transportation Table
+model StudentTransportation {
+  id Int @id @default (autoincrement())
+  userId Int
+  studentId Int
+  transportationDetails String // Pickup, drop-off, etc.
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Class Roster Table
+model ClassRoster {
+  id Int @id @default (autoincrement())
+  userId Int 
+  studentName String // Name of the student
+  gradeLevel String // Grade level (e.g., "Grade 5")
+  birthday DateTime// Birthday of the student
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Weekly Lesson Plan Table
+model WeeklyLessonPlan {
+  id Int @id @default (autoincrement())
+  userId Int 
+  subject String
+  lessonDescription String
+  weekStartDate DateTime
+  weekEndDate DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// Daily Lesson Plan Table
+model DailyLessonPlan {
+  id Int @id @default (autoincrement())
+  userId Int 
+  subject String
+  lessonDescription String
+  date DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}

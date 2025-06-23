@@ -57,20 +57,20 @@ router.post("/password", authenticate, async (req, res, next) => {
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
  * @params {id} - The ID of the personal password to update.
- * @body {userId, eventName, eventDate, description} - Fields to update.
+ * @body {userId, accountName, username, password} - Fields to update.
  * @returns {Object} - The updated personal password object.
  */
 
 //Update a personal password
 router.patch("/password/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
-  const { userId, eventName, eventDate, description } = req.body;
+  const { userId, accountName, username, password } = req.body;
 
   try {
-    const password = await prisma.personalPassword.findUniqueOrThrow({
+    const existingPassword = await prisma.personalPassword.findUniqueOrThrow({
       where: { id: +id },
     });
-    if (!password) {
+    if (!existingPassword) {
       return next({
         status: 404,
         message: `Password ${id} does not exist`,
@@ -80,9 +80,9 @@ router.patch("/password/:id", authenticate, async (req, res, next) => {
     // Prepare the update object with the modified fields
     const updateData = {};
     if (userId) updateData.userId = +userId;
-    if (eventName) updateData.eventName = eventName;
-    if (eventDate) updateData.eventDate = eventDate;
-    if (description) updateData.description = description;
+    if (accountName) updateData.accountName = accountName;
+    if (username) updateData.username = username;
+    if (password) updateData.password = password;
 
     // Apply the updates to the personal password in the database
     const updatedPassword = await prisma.personalPassword.update({
