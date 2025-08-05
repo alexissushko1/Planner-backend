@@ -258,7 +258,7 @@ Content-Type: application/json
 }
 
 ### Update a personal password
-PATCH {{host}}/api/personalPasswords/password/12
+PATCH {{host}}/api/personalPasswords/password/14
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -270,7 +270,7 @@ Content-Type: application/json
 }
 
 ### Delete a personal password
-DELETE {{host}}/api/personalPasswords/password/12
+DELETE {{host}}/api/personalPasswords/password/13
 Authorization: Bearer {{token}}
 
 ### Get all grocery lists
@@ -682,7 +682,7 @@ Content-Type: application/json
 }
 
 ### Update a school password
-PATCH {{host}}/api/schoolpasswords/school-password/1
+PATCH {{host}}/api/schoolpasswords/school-password/7
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -695,7 +695,7 @@ Content-Type: application/json
 }
 
 ### Delete a school password
-DELETE {{host}}/api/schoolpasswords/school-password/5
+DELETE {{host}}/api/schoolpasswords/school-password/1
 Authorization: Bearer {{token}}
 
 ### Get all rewards
