@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 //Import authentication middleware and Prisma client for database access
-const { authenticate } = require("./auth");
+const { authenticate } = require("../generalApi/auth");
 const prisma = require("../../prisma");
 
 /**
