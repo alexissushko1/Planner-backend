@@ -126,6 +126,7 @@ Content-Type: application/json
   "userId": 1,
   "eventName": "Christmas Concert",
   "eventDate": "2024-12-05T17:00:00Z",
+  "endEventDate": "2024-12-05T19:00:00Z",
   "description": "School Christmas Concert"
 }
 
@@ -138,6 +139,7 @@ Content-Type: application/json
   "userId": 1,
   "eventName": "2nd Grade Christmas Concert",
   "eventDate" : "2024-12-06T17:00:00Z",
+  "endEventDate": "2024-12-07T17:00:00Z",
   "description": "Changed date of Christmas concert"
 }
 

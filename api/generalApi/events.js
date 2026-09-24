@@ -29,19 +29,20 @@ router.get("/event", authenticate, async (req, res, next) => {
  * @description Adds new event info to the database
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
- * @body {userId, eventName, eventDate, description} - The event info to be added.
+ * @body {userId, eventName, eventDate, endEventDate, description} - The event info to be added.
  * @returns {Object} - The newly created event object.
  */
 
 //Add an event
 router.post("/event", authenticate, async (req, res, next) => {
-  const { userId, eventName, eventDate, description } = req.body;
+  const { userId, eventName, eventDate, endEventDate, description } = req.body;
   try {
     const event = await prisma.calendarEvent.create({
       data: {
         userId,
         eventName,
         eventDate,
+        endEventDate,
         description,
       },
     });
@@ -57,14 +58,14 @@ router.post("/event", authenticate, async (req, res, next) => {
  * @access Private (JWT authentication required)
  * @security JWT - A valid JWT token must be provided in the Authorization header.
  * @params {id} - The ID of the event to update.
- * @body {userId, eventName, eventDate, description} - Fields to update.
+ * @body {userId, eventName, eventDate, endEventDate, description} - Fields to update.
  * @returns {Object} - The updated event object.
  */
 
 //Update an event
 router.patch("/event/:id", authenticate, async (req, res, next) => {
   const { id } = req.params;
-  const { userId, eventName, eventDate, description } = req.body;
+  const { userId, eventName, eventDate, endEventDate, description } = req.body;
 
   try {
     const event = await prisma.calendarEvent.findUniqueOrThrow({
@@ -82,6 +83,7 @@ router.patch("/event/:id", authenticate, async (req, res, next) => {
     if (userId) updateData.userId = +userId;
     if (eventName) updateData.eventName = eventName;
     if (eventDate) updateData.eventDate = eventDate;
+    if (endEventDate) updateData.endEventDate = endEventDate;
     if (description) updateData.description = description;
 
     // Apply the updates to the event in the database

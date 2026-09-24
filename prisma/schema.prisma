@@ -74,6 +74,7 @@ model CalendarEvent {
   userId Int 
   eventName String
   eventDate DateTime
+  endEventDate DateTime?
   description String
 
   user User @relation(fields: [userId], references: [id])
